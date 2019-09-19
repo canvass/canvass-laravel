@@ -1,0 +1,39 @@
+@extends('canvass::layouts.layout')
+
+@section('content-page-title')
+    Update Form, "{{ $form->name }}"
+@endsection
+
+@section('content-page-breadcrumbs')
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="{{ route('form.index') }}">
+                Forms
+            </a>
+        </li>
+        <li class="breadcrumb-item active">Update Form</li>
+    </ol>
+@endsection
+
+@section('content')
+    <div class="row">
+        <div class="col-12">
+            <div class="card-box">
+                <h1 class="m-t-0 header-title">
+                    Update Form, "{{ $form->name }}"
+                </h1>
+
+                <form method="POST" action="{{ route('form.update', $form->id) }}"
+                      enctype="multipart/form-data"
+                      accept-charset="UTF-8"
+                >
+                    {{ csrf_field() }}
+                    {{ method_field('put') }}
+
+                    @include('canvass::form.partials.form')
+
+                </form>
+            </div>
+        </div>
+    </div>
+@endsection

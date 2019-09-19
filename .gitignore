@@ -1,0 +1,5 @@
+/vendor
+/.idea
+.env
+/tests/app/storage
+.DS_Store
