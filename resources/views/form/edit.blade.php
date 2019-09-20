@@ -23,6 +23,15 @@
                     Update Form, "{{ $form->name }}"
                 </h1>
 
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="{{ route('form.index') }}">
+                            Forms
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item active">Update Form</li>
+                </ol>
+
                 <form method="POST" action="{{ route('form.update', $form->id) }}"
                       enctype="multipart/form-data"
                       accept-charset="UTF-8"

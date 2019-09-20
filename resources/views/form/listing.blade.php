@@ -18,6 +18,10 @@
                 Form
             </h1>
 
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active">Forms List</li>
+            </ol>
+
             <a class="btn btn-success" href="{{ route('form.create') }}">
                 Add a Form
             </a>

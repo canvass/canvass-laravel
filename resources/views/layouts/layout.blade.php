@@ -27,10 +27,6 @@
 <!-- Begin page -->
 <div id="wrapper">
 
-<div role="banner">
-    <h1 class="sr-only">@yield('content-page-title')</h1>
-</div>
-
 <div class="content-page">
     <main class="content">
         <div class="container-fluid">

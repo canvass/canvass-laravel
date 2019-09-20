@@ -18,6 +18,17 @@
                 Edit {{ $form->name }} Fields
             </h1>
 
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="{{ route('form.index') }}">
+                        Forms List
+                    </a>
+                </li>
+                <li class="breadcrumb-item active">
+                    {{ $form->name }} Field List
+                </li>
+            </ol>
+
             <div class="form-wrap">
             <ul class="list-unstyled">
                 <li class="field-wrap">
@@ -99,27 +110,4 @@
         </div>
     </div>
 </div>
-@endsection
-
-@section('page-styles')
-<style>
-    .form-wrap {
-        max-width: 750px;
-        margin: auto;
-    }
-    .field-wrap {
-        padding: 1em;
-        margin-bottom: 1em;
-        background-color: #fefefe;
-        border: 1px solid #fefefe;
-        border-radius: .25em;
-    }
-    .field-wrap:nth-child(even) {
-        background-color: #efefef;
-        border: 1px solid #efefef;
-    }
-    .field-wrap:hover {
-        border: 1px solid #a6a6a6;
-    }
-</style>
 @endsection
