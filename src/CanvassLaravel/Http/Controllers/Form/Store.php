@@ -46,7 +46,7 @@ class Store
                 ->with('error', 'Could not save form.');
         }
 
-        return redirect()->route('canvass::form.index')
+        return redirect()->route('form.index')
             ->with(
                 'success',
                 sprintf('%s has been saved.', $form->name)

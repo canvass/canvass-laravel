@@ -42,7 +42,7 @@ class Destroy
                 );
         }
 
-        return redirect()->route('canvass::form.index')
+        return redirect()->route('form.index')
             ->with(
                 'success',
                 sprintf('%s has been deleted.', $form->name)

@@ -58,7 +58,7 @@ class Update
                 );
         }
 
-        return redirect()->route('canvass::form.index')
+        return redirect()->route('form.index')
             ->with(
                 'success',
                 sprintf('%s has been updated.', $form->name)

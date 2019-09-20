@@ -38,7 +38,7 @@
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/",
-            "Canvass\\": "../canvass-core/src/Canvass/"
+            "Canvass\\": "../../canvass-core/src/Canvass/"
         }
     }
 }

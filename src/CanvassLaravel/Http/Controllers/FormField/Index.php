@@ -10,10 +10,10 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class Index
 {
-    public function __invoke(int $id, int $version = 1)
+    public function __invoke(int $form_id, int $version = 1)
     {
         try {
-            $form = Form::findOrFail($id);
+            $form = Form::findOrFail($form_id);
         } catch (ModelNotFoundException $e) {
             return redirect()->back()
                 ->with(
@@ -23,11 +23,11 @@ class Index
         }
 
         // TODO pass owner_id
-        $get = new ListFields();
+        $get = new ListFields($form, new FormField());
 
         return view(
             'canvass::form_field.listing',
-            $get->run($form, new FormField(), $version)
+            $get->run($version)
         );
     }
 }

@@ -18,44 +18,108 @@
                 Edit {{ $form->name }} Fields
             </h1>
 
-            <ul>
+            <div class="form-wrap">
+            <ul class="list-unstyled">
+                <li class="field-wrap">
+                    @include('canvass::form_field.partials.add-field-buttons')
+                </li>
+
             @foreach($fields as $field)
-                <li>
-{{--                    <a href="{{ route('form.edit', $form->id) }}">--}}
+                <li class="field-wrap">
+                    <h2>
                         {{ $field->label }}
-{{--                    </a>--}}
 
-{{--                    <a class="btn btn-sm btn-outline-success"--}}
-{{--                       href="{{ route('form_field.index', $form->id) }}">--}}
-{{--                        Move Up--}}
-{{--                    </a>--}}
+                        <small><code>
+                            id="{{ $field->identifier }}"
+                            class="{{ $field->classes ?? '<em>None</em>' }}"
+                        </code></small>
+                    </h2>
+                    <p><code>
+                    @foreach(['type', 'name', 'value'] as $key)
+                        {{ $key }}="{{ $field->getAttribute($key) }}"
+                    @endforeach
+                    </code></p>
+                    @if(! empty($field->help_text))
+                    <p>
+                        <strong>Help Text:</strong>
+                        {{ $field->help_text }}
+                    </p>
+                    @endif
 
-{{--                    <a class="btn btn-sm btn-outline-success"--}}
-{{--                       href="{{ route('form_field.index', $form->id) }}">--}}
-{{--                        Move Down--}}
-{{--                    </a>--}}
+                    <a class="btn btn-outline-primary"
+                       href="{{ route(
+                        'form_field.edit',
+                        [$form->id, $field->id]
+                    ) }}">
+                        Edit field
+                    </a>
 
-{{--                    <a class="btn btn-sm btn-outline-primary"--}}
-{{--                       href="{{ route('form.edit', $form->id) }}">--}}
-{{--                        Edit field--}}
-{{--                    </a>--}}
+                    <a class="btn btn-outline-success"
+                       href="{{ route(
+                        'form_field.index',
+                        [$form->id, $field->id]
+                    ) }}">
+                        Move Up
+                    </a>
 
-{{--                    <form method="post" style="display:inline;"--}}
-{{--                      action="{{ route('form.destroy', $form->id) }}"--}}
-{{--                      class="js-confirm"--}}
-{{--                      data-confirm="Are you sure you want to delete the form?"--}}
-{{--                    >--}}
-{{--                        {!! csrf_field() !!}--}}
-{{--                        {!! method_field('delete') !!}--}}
+                    <a class="btn btn-outline-success"
+                       href="{{ route(
+                        'form_field.index',
+                        [$form->id, $field->id]
+                    ) }}">
+                        Move Down
+                    </a>
 
-{{--                        <button class="btn btn-sm btn-outline-danger" type="submit">--}}
-{{--                            Delete field--}}
-{{--                        </button>--}}
-{{--                    </form>--}}
+                    <form method="post" style="display:inline;"
+                      action="{{ route(
+                        'form_field.destroy',
+                        [$form->id, $field->id]
+                      ) }}"
+                      class="js-confirm"
+                      data-confirm="Are you sure you want to delete this field?"
+                    >
+                        {!! csrf_field() !!}
+                        {!! method_field('delete') !!}
+
+                        <button class="btn btn-outline-danger" type="submit">
+                            Delete field
+                        </button>
+                    </form>
+                </li>
+
+                <li class="field-wrap">
+                    @include(
+                        'canvass::form_field.partials.add-field-buttons',
+                        ['sort' => $field->sort]
+                    )
                 </li>
             @endforeach
             </ul>
+            </div>
         </div>
     </div>
 </div>
+@endsection
+
+@section('page-styles')
+<style>
+    .form-wrap {
+        max-width: 750px;
+        margin: auto;
+    }
+    .field-wrap {
+        padding: 1em;
+        margin-bottom: 1em;
+        background-color: #fefefe;
+        border: 1px solid #fefefe;
+        border-radius: .25em;
+    }
+    .field-wrap:nth-child(even) {
+        background-color: #efefef;
+        border: 1px solid #efefef;
+    }
+    .field-wrap:hover {
+        border: 1px solid #a6a6a6;
+    }
+</style>
 @endsection

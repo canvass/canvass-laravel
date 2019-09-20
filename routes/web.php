@@ -19,10 +19,8 @@ use \CanvassLaravel\Http\Controllers\FormField;
 
 
         // Form Control Routes
-        Route::get(
-            '{id}/fields',
-            FormField\Index::class
-        )->name('form_field.index');
+        Route::get('{form_id}/fields', FormField\Index::class)
+            ->name('form_field.index');
     });
 //});
 

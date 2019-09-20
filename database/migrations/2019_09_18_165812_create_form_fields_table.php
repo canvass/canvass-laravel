@@ -19,6 +19,7 @@ class CreateFormFieldsTable extends Migration
             $table->unsignedInteger('form_id');
             $table->unsignedInteger('version')->default(1);
             $table->unsignedInteger('parent_id')->default(0);
+            $table->unsignedInteger('sort')->default(1);
 
             //TODO Options & Children columns (how am I going to handle these?)
 
@@ -38,6 +39,11 @@ class CreateFormFieldsTable extends Migration
             $table->unique(
                 ['form_id', 'version', 'identifier'],
                 'unique_id_attr'
+            );
+
+            $table->unique(
+                ['form_id', 'version', 'parent_id', 'sort'],
+                'unique_sort'
             );
         });
     }
