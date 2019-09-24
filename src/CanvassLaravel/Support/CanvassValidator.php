@@ -24,14 +24,23 @@ class CanvassValidator implements Validate, ValidationMap
             $string = [];
             
             foreach ($rule as $key => $value) {
-                if (true === $value) {
+                if ('allow_null' === $key) {
+                    $string[] = 'nullable';
+                }
+                elseif ('data_type' === $key) {
+                    $string[] = $value;
+                }
+                elseif (true === $value) {
                     $string[] = $key;
-                } elseif (false === $value) {
+                }
+                elseif (false === $value) {
                     // ignore
-                } elseif (strpos($key, '_length') !== false) {
+                }
+                elseif (strpos($key, '_length') !== false) {
                     $key = str_replace('_length', '', $key);
                     $string[] = "{$key}:{$value}";
-                } else {
+                }
+                else {
                     $string[] = "{$key}:{$value}";
                 }
             }
