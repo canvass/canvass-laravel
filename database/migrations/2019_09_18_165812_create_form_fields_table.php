@@ -20,7 +20,7 @@ class CreateFormFieldsTable extends Migration
             $table->unsignedInteger('parent_id')->default(0);
             $table->unsignedInteger('sort')->default(1);
 
-            $table->string('identifier', 160);
+            $table->string('identifier', 160)->nullable();
             $table->string('classes', 160)->nullable();
 
             $table->string('name', 160);
@@ -32,8 +32,6 @@ class CreateFormFieldsTable extends Migration
 
             $table->timestamps();
             $table->softDeletes();
-
-            $table->unique(['form_id', 'identifier'], 'unique_id_attr');
         });
     }
 }
