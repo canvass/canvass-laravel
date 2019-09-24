@@ -2,6 +2,7 @@
 
 use \CanvassLaravel\Http\Controllers\Form;
 use \CanvassLaravel\Http\Controllers\FormField;
+use \CanvassLaravel\Http\Controllers\FieldOption;
 
 //Route::group(['middleware' => ['auth']], function () {
     Route::group(['prefix' => 'form'], function () {
@@ -42,6 +43,32 @@ use \CanvassLaravel\Http\Controllers\FormField;
 
         Route::post('{form_id}/fields/move/{field}/down', FormField\MoveDown::class)
             ->name('form_field.move_down');
+
+        // Field Option Routes
+        Route::get(
+            '{form_id}/fields/{field_id}/options/create/{sort}/{type}',
+            FieldOption\Create::class
+        )->name('form_field_option.create');
+
+        Route::post(
+            '{form_id}/fields/{field_id}/options/{sort}/{type}',
+            FieldOption\Store::class
+        )->name('form_field_option.store');
+
+        Route::get(
+            '{form_id}/fields/{field_id}/options/edit/{option_id}',
+            FieldOption\Edit::class
+        )->name('form_field_option.edit');
+
+        Route::put(
+            '{form_id}/fields/{field_id}/options/edit/{option_id}',
+            FieldOption\Update::class
+        )->name('form_field_option.update');
+
+        Route::delete(
+            '{form_id}/fields/{field_id}/options/{option_id}',
+            FieldOption\Destroy::class
+        )->name('form_field_option.destroy');
     });
 //});
 

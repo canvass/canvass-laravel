@@ -34,9 +34,21 @@
                     Edit
                 </a>
 
-                <a class="btn btn-sm btn-outline-danger" href="delete">
-                    Delete
-                </a>
+                <form method="post" style="display:inline;"
+                  action="{{ route(
+                    'form_field_option.destroy',
+                    [$form->id, $field->id, $child->id]
+                  ) }}"
+                  class="js-confirm"
+                  data-confirm="Are you sure you want to delete this field option?"
+                >
+                    {!! csrf_field() !!}
+                    {!! method_field('delete') !!}
+
+                    <button class="btn btn-sm btn-outline-danger" type="submit">
+                        Delete
+                    </button>
+                </form>
 
                 <hr>
             </li>
