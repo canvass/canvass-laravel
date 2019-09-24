@@ -17,11 +17,8 @@ class CreateFormFieldsTable extends Migration
         Schema::create($this->table_name, function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('form_id');
-            $table->unsignedInteger('version')->default(1);
             $table->unsignedInteger('parent_id')->default(0);
             $table->unsignedInteger('sort')->default(1);
-
-            //TODO Options & Children columns (how am I going to handle these?)
 
             $table->string('identifier', 160);
             $table->string('classes', 160)->nullable();
@@ -36,15 +33,7 @@ class CreateFormFieldsTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->unique(
-                ['form_id', 'version', 'identifier'],
-                'unique_id_attr'
-            );
-
-            $table->unique(
-                ['form_id', 'version', 'parent_id', 'sort'],
-                'unique_sort'
-            );
+            $table->unique(['form_id', 'identifier'], 'unique_id_attr');
         });
     }
 }
