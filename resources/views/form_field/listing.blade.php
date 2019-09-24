@@ -4,12 +4,6 @@
     Edit {{ $form->name }} Fields
 @endsection
 
-@section('content-page-breadcrumbs')
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item active">Forms List</li>
-    </ol>
-@endsection
-
 @section('content')
 <div class="row">
     <div class="col-12">
@@ -31,11 +25,8 @@
 
             <div class="form-wrap">
             <ul class="list-unstyled">
-                <li class="field-wrap">
-                    @include('canvass::form_field.partials.add-field-buttons')
-                </li>
-
-            @foreach($fields as $field)
+            <?php $last = count($fields) - 1; ?>
+            @foreach($fields as $index => $field)
                 <li class="field-wrap">
                     <h2>
                         {{ $field->label }}
@@ -65,21 +56,39 @@
                         Edit field
                     </a>
 
-                    <a class="btn btn-outline-success"
-                       href="{{ route(
-                        'form_field.index',
+                    @if(0 !== $index)
+                    <form method="post" style="display:inline;"
+                      action="{{ route(
+                        'form_field.move_up',
                         [$form->id, $field->id]
-                    ) }}">
-                        Move Up
-                    </a>
+                      ) }}"
+                      class="js-confirm"
+                      data-confirm="Are you sure you want to move this field up?"
+                    >
+                        {!! csrf_field() !!}
 
-                    <a class="btn btn-outline-success"
-                       href="{{ route(
-                        'form_field.index',
+                        <button class="btn btn-outline-success" type="submit">
+                            Move Up
+                        </button>
+                    </form>
+                    @endif
+
+                    @if($last !== $index)
+                    <form method="post" style="display:inline;"
+                      action="{{ route(
+                        'form_field.move_down',
                         [$form->id, $field->id]
-                    ) }}">
-                        Move Down
-                    </a>
+                      ) }}"
+                      class="js-confirm"
+                      data-confirm="Are you sure you want to move this field down?"
+                    >
+                        {!! csrf_field() !!}
+
+                        <button class="btn btn-outline-success" type="submit">
+                            Move Down
+                        </button>
+                    </form>
+                    @endif
 
                     <form method="post" style="display:inline;"
                       action="{{ route(
@@ -97,6 +106,7 @@
                         </button>
                     </form>
                 </li>
+            @endforeach
 
                 <li class="field-wrap">
                     @include(
@@ -104,7 +114,6 @@
                         ['sort' => $field->sort]
                     )
                 </li>
-            @endforeach
             </ul>
             </div>
         </div>
