@@ -27,20 +27,20 @@ class CanvassServiceProvider extends ServiceProvider
     {
         if ((bool) env('MIGRATIONS_USE_UPGRADES', true)) {
             $this->loadMigrationsFrom(
-                canvass_path('database/migrations/')
+                canvass_laravel_path('database/migrations/')
             );
         }
 
         if ('production' !== env('APP_ENV')) {
             $this->registerEloquentFactoriesFrom(
-                canvass_path('database/factories/')
+                canvass_laravel_path('database/factories/')
             );
         }
 
-        $this->loadRoutesFrom(canvass_path('routes/web.php'));
+        $this->loadRoutesFrom(canvass_laravel_path('routes/web.php'));
 
         $this->loadViewsFrom(
-            canvass_path('resources/views/'),
+            canvass_laravel_path('resources/views/'),
             'canvass'
         );
     }
