@@ -26,6 +26,7 @@ class Edit
             'children' => $children,
             'type' => $field->getHtmlType(),
             'sort' => $field->sort,
+            'show_type_field' => false,
         ]);
     }
 }

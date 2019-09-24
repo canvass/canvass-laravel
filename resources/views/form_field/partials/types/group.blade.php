@@ -2,6 +2,7 @@
 
 @include('canvass::form_field.partials.fields.name')
 
+@if($show_type_field ?? true)
 <div class="form-group">
     <label for="type">
         Type
@@ -21,6 +22,7 @@
         </option>
     </select>
 </div>
+@endif
 
 @include('canvass::form_field.partials.fields.id')
 
