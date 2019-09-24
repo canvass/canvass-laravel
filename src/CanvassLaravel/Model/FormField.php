@@ -3,6 +3,7 @@
 namespace CanvassLaravel\Model;
 
 use Canvass\Contract\FormFieldModel;
+use Canvass\Support\PreparesFormFieldData;
 use Illuminate\Database\Eloquent\Model;
 
 class FormField extends Model implements FormFieldModel
@@ -11,21 +12,24 @@ class FormField extends Model implements FormFieldModel
 
     ];
 
-    public function findAllByFormId($form_id, $version = 1, $owner_id)
+    public const INPUT_TYPES = [
+        'checkbox', 'date', 'email', 'number', 'radio', 'search',
+        'tel', 'text', 'time', 'url',
+    ];
+
+    use PreparesFormFieldData;
+
+    public function findAllByFormId($form_id, $parent_id = null)
     {
-        $query = self::query();
+        $fields = self::query()
+            ->orderBy('parent_id')
+            ->orderBy('sort');
 
-        if (null !== $version) {
-            $query = $query->where('version', $version);
+        if (null !== $parent_id) {
+            $fields = $fields->where('parent_id', $parent_id);
         }
 
-        if (null !== $owner_id) {
-            $query = $query->where('owner_id', $owner_id);
-        }
-
-        return $query->orderBy('parent_id')
-            ->orderBy('sort')
-            ->get();
+        return $fields->get();
     }
 
     public function find($id)
@@ -36,5 +40,28 @@ class FormField extends Model implements FormFieldModel
     public function getId()
     {
         return $this->attributes['id'];
+    }
+
+    public function getHtmlType(): string
+    {
+        $type = $this->attributes['type'];
+
+        if (in_array($type, self::INPUT_TYPES, true)) {
+            return 'input';
+        }
+
+        if (strpos($type, 'group') !== false) {
+            return 'group';
+        }
+
+        return $type;
+    }
+
+    public function retrieveChildren()
+    {
+        return self::query()
+            ->where('parent_id', $this->getId())
+            ->orderBy('sort')
+            ->get();
     }
 }
