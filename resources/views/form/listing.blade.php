@@ -4,12 +4,6 @@
     Forms
 @endsection
 
-@section('content-page-breadcrumbs')
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item active">Forms List</li>
-    </ol>
-@endsection
-
 @section('content')
 <div class="row">
     <div class="col-12">

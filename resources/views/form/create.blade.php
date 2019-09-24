@@ -4,17 +4,6 @@
     Add a Form
 @endsection
 
-@section('content-page-breadcrumbs')
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-            <a href="{{ route('form.index') }}">
-                Forms
-            </a>
-        </li>
-        <li class="breadcrumb-item active">Add a Form</li>
-    </ol>
-@endsection
-
 @section('content')
     <div class="row">
         <div class="col-12">

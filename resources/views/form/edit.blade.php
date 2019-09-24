@@ -4,17 +4,6 @@
     Update Form, "{{ $form->name }}"
 @endsection
 
-@section('content-page-breadcrumbs')
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-            <a href="{{ route('form.index') }}">
-                Forms
-            </a>
-        </li>
-        <li class="breadcrumb-item active">Update Form</li>
-    </ol>
-@endsection
-
 @section('content')
     <div class="row">
         <div class="col-12">

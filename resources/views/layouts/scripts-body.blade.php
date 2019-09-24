@@ -15,14 +15,16 @@ document.addEventListener("DOMContentLoaded", function() {
     for (var i = 0; i < js_confirms.length; i++) {
         var confirm_el = js_confirms[i];
 
-        var message = confirm_el.dataset.confirm;
-
         if ('FORM' === confirm_el.tagName) {
             confirm_el.addEventListener('submit', function (event) {
+                var message = event.target.dataset.confirm;
+
                 window.canvass.confirmAction(event, message);
             });
         } else {
             confirm_el.addEventListener('click', function (event) {
+                var message = event.target.dataset.confirm;
+
                 window.canvass.confirmAction(event, message);
             });
         }
