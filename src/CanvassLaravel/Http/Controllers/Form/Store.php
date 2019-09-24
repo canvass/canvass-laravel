@@ -2,9 +2,9 @@
 
 namespace CanvassLaravel\Http\Controllers\Form;
 
+use Canvass\Action\Validation\ValidateFormData;
 use CanvassLaravel\Support\CanvassValidator;
 use Canvass\Action\UpdateForm;
-use Canvass\Action\ValidateFormData;
 use CanvassLaravel\Model\Form;
 
 class Store
