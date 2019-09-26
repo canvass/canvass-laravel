@@ -26,6 +26,7 @@ class CreateFormFieldsTable extends Migration
             $table->string('name', 160);
             $table->string('label', 160)->nullable();
             $table->string('type', 160)->nullable();
+            $table->string('canvass_type', 160)->nullable();
             $table->string('value', 160)->nullable();
 
             $table->string('help_text', 320)->nullable();

@@ -22,6 +22,7 @@ class FormField extends Model implements FormFieldModel
     public function findAllByFormId($form_id, $parent_id = null)
     {
         $fields = self::query()
+            ->where('form_id', $form_id)
             ->orderBy('parent_id')
             ->orderBy('sort');
 

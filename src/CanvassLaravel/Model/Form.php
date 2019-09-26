@@ -32,20 +32,36 @@ class Form extends Model implements FormModel
         return $query->orderBy('name')->get();
     }
 
-    public function findFields()
+    public function findFields($parent_id = null)
     {
-        return FormField::where('form_id', $this->getId())
+        $fields = FormField::where('form_id', $this->getId())
             ->orderBy('parent_id')
-            ->orderBy('sort')
-            ->get();
+            ->orderBy('sort');
+
+        if (null !== $parent_id) {
+            $fields = $fields->where('parent_id', $parent_id);
+        }
+
+        return $fields->get();
     }
 
-    public function findFieldWithSortOf(int $sort, $parent_id = 0): ?FormFieldModel
+    public function findFieldWithSortOf(
+        int $sort,
+        $parent_id = 0
+    ): ?FormFieldModel
     {
         return FormField::where('sort', $sort)
             ->where('form_id', $this->getId())
             ->where('parent_id', $parent_id)
             ->first();
+    }
+
+    public function findFieldsWithSortGreaterThan(int $sort, $parent_id = 0)
+    {
+        return FormField::where('sort', '>', $sort)
+            ->where('form_id', $this->getId())
+            ->where('parent_id', $parent_id)
+            ->get();
     }
 
     public function getId()
