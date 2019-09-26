@@ -2,18 +2,22 @@
 
 namespace CanvassLaravel\Support;
 
-class View implements \Canvass\Contract\View
+class View
 {
-    /** @var string */
-    private $path;
-
-    public function __construct(string $path)
+    public static function getFieldCreateRoute(
+        $form_id,
+        $type,
+        $sort = 0,
+        $field_id = null
+    )
     {
-        $this->path = $path;
-    }
+        if (null !== $field_id) {
+            return route(
+                'form_field_option.create',
+                [$form_id, $field_id, $sort, $type]
+            );
+        }
 
-    public function render($data = null)
-    {
-        return view($this->path, $data);
+        return route('form_field.create', [$form_id, $type, $sort]);
     }
 }

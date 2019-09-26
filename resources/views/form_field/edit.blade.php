@@ -26,18 +26,22 @@
                 <li class="breadcrumb-item active">Update Field</li>
             </ol>
 
-            <form method="POST" action="{{ route(
-                'form_field.update', [$form->id, $field->id]
-            ) }}"
-                  enctype="multipart/form-data"
-                  accept-charset="UTF-8"
-            >
-                {{ csrf_field() }}
-                {{ method_field('put') }}
+            <div class="form-wrap">
+                <form method="POST" action="{{ route(
+                    'form_field.update', [$form->id, $field->id]
+                ) }}"
+                      enctype="multipart/form-data"
+                      accept-charset="UTF-8"
+                >
+                    {{ csrf_field() }}
+                    {{ method_field('put') }}
 
-                @include('canvass::form_field.partials.form')
+                    @include('canvass::form_field.partials.form')
 
-            </form>
+                </form>
+
+                @includeIf("canvass::form_field.partials.types.{$type}-close")
+            </div>
         </div>
     </div>
 </div>

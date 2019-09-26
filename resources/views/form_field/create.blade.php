@@ -24,18 +24,20 @@
                 <li class="breadcrumb-item active">Add a Field</li>
             </ol>
 
-            <form method="POST" action="{{ route(
-                'form_field.store',
-                [$form->id, $type, $sort]
-            ) }}"
-                  enctype="multipart/form-data"
-                  accept-charset="UTF-8"
-            >
-                {{ csrf_field() }}
+            <div class="form-wrap">
+                <form method="POST" action="{{ route(
+                    'form_field.store',
+                    [$form->id, $type, $sort]
+                ) }}"
+                      enctype="multipart/form-data"
+                      accept-charset="UTF-8"
+                >
+                    {{ csrf_field() }}
 
-                @include('canvass::form_field.partials.form')
+                    @include('canvass::form_field.partials.form')
 
-            </form>
+                </form>
+            </div>
         </div>
     </div>
 </div>

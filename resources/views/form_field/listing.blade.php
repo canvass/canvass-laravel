@@ -111,7 +111,7 @@
                 <li class="field-wrap">
                     @include(
                         'canvass::form_field.partials.add-field-buttons',
-                        ['sort' => $field->sort]
+                        ['sort' => $field->sort ?? 0, 'field' => null,]
                     )
                 </li>
             </ul>
