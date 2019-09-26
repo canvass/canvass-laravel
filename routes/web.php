@@ -4,7 +4,7 @@ use \CanvassLaravel\Http\Controllers\Form;
 use \CanvassLaravel\Http\Controllers\FormField;
 use \CanvassLaravel\Http\Controllers\FieldOption;
 
-//Route::group(['middleware' => ['auth']], function () {
+Route::group(['middleware' => ['web', 'auth']], function () {
     Route::group(['prefix' => 'form'], function () {
         Route::get('/', Form\Index::class)->name('form.index');
 
@@ -69,6 +69,16 @@ use \CanvassLaravel\Http\Controllers\FieldOption;
             '{form_id}/fields/{field_id}/options/{option_id}',
             FieldOption\Destroy::class
         )->name('form_field_option.destroy');
+
+        Route::post(
+            '{form_id}/fields/{field_id}/options/{option_id}/move/up',
+            FieldOption\MoveUp::class
+        )->name('form_field_option.move_up');
+
+        Route::post(
+            '{form_id}/fields/{field_id}/options/{option_id}/move/down',
+            FieldOption\MoveDown::class
+        )->name('form_field_option.move_down');
     });
-//});
+});
 

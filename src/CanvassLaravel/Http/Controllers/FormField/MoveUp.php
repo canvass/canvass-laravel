@@ -3,6 +3,7 @@
 namespace CanvassLaravel\Http\Controllers\FormField;
 
 use Canvass\Action\FormField\MoveField;
+use Canvass\Exception\InvalidSortException;
 use CanvassLaravel\Model\Form;
 use CanvassLaravel\Model\FormField;
 use CanvassLaravel\Support\LogsThrowables;
@@ -23,21 +24,20 @@ class MoveUp
 
         $move = new MoveField($form, $field, null);
 
+        $moved = false;
+
         try {
             $moved = $move->run(MoveField::UP);
+        } catch (InvalidSortException $e) {
+            $message = 'Moving the field would result in an invalid sort.';
         } catch (\Throwable $e) {
             $this->logThrowable($e);
 
-            $moved = false;
+            $message = 'Could not move field for unknown reasons.';
         }
 
         if (! $moved) {
-            return redirect()
-                ->back()
-                ->with(
-                    'error',
-                    'Could not move field for unknown reasons.'
-                );
+            return redirect()->back()->with('error', $message);
         }
 
         return redirect()->route('form_field.index', $form->id)

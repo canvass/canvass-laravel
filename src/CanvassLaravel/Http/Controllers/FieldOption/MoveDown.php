@@ -1,6 +1,6 @@
 <?php
 
-namespace CanvassLaravel\Http\Controllers\FormField;
+namespace CanvassLaravel\Http\Controllers\FieldOption;
 
 use Canvass\Action\FormField\MoveField;
 use Canvass\Exception\InvalidSortException;
@@ -13,11 +13,14 @@ class MoveDown
 {
     use LogsThrowables;
 
-    public function __invoke(int $form_id, int $field)
+    public function __invoke(int $form_id, int $field_id, int $option_id)
     {
         try {
             $form = Form::findOrFail($form_id);
-            $field = FormField::findOrFail($field);
+
+            $parent = FormField::findOrFail($field_id);
+
+            $field = FormField::findOrFail($option_id);
         } catch (ModelNotFoundException $e) {
 
         }
@@ -27,7 +30,7 @@ class MoveDown
         $moved = false;
 
         try {
-            $moved = $move->run(MoveField::DOWN);
+            $moved = $move->run(MoveField::DOWN, $parent->id);
         } catch (InvalidSortException $e) {
             $message = 'Moving the field would result in an invalid sort.';
         } catch (\Throwable $e) {
@@ -40,7 +43,7 @@ class MoveDown
             return redirect()->back()->with('error', $message);
         }
 
-        return redirect()->route('form_field.index', $form->id)
+        return redirect()->route('form_field.edit', [$form->id, $parent->id])
             ->with(
                 'success',
                 sprintf(
