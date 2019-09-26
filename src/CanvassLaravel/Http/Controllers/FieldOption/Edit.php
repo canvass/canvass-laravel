@@ -24,7 +24,7 @@ class Edit
             'form' => $form,
             'parent' => $parent,
             'field' => $field,
-            'type' => $field->type
+            'type' => $field->canvass_type
         ]);
     }
 }
