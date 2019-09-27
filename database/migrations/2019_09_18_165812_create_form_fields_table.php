@@ -31,6 +31,8 @@ class CreateFormFieldsTable extends Migration
 
             $table->string('help_text', 320)->nullable();
 
+            $table->json('attributes')->nullable();
+
             $table->timestamps();
             $table->softDeletes();
         });
