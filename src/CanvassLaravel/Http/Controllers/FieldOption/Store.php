@@ -21,6 +21,8 @@ class Store
         string $type
     )
     {
+        \Canvass\Support\FieldTypes::isValid($type);
+
         try {
             /** @var Form $form */
             $form = Form::findOrFail($form_id);

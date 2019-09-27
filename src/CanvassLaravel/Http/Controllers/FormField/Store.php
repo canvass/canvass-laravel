@@ -3,13 +3,11 @@
 namespace CanvassLaravel\Http\Controllers\FormField;
 
 use Canvass\Action\FormField\CreateField;
-use Canvass\Support\FieldTypes;
 use CanvassLaravel\Model\Form;
 use CanvassLaravel\Model\FormField;
 use CanvassLaravel\Support\CanvassValidator;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
-use Illuminate\Validation\ValidationException;
 
 class Store
 {
@@ -19,9 +17,7 @@ class Store
         Request $request, int $form_id, string $type, int $sort = null
     )
     {
-        if (! in_array($type, FieldTypes::get(true), true)) {
-            throw new ValidationException("{$type} is not valid.");
-        }
+        \Canvass\Support\FieldTypes::isValid($type);
 
         try {
             $form = Form::findOrFail($form_id);

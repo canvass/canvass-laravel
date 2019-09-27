@@ -15,6 +15,8 @@ class Create
         string $type
     )
     {
+        \Canvass\Support\FieldTypes::isValid($type);
+
         try {
             $form = Form::findOrFail($form_id);
             /** @var FormField $field */

@@ -23,6 +23,12 @@ Route::group(['middleware' => ['web', 'auth']], function () {
         Route::get('{form_id}/fields', FormField\Index::class)
             ->name('form_field.index');
 
+
+        Route::get(
+            '{form_id}/fields/create/input/{sort?}',
+            FormField\SelectInputType::class
+        )->name('form_field.select_input_type');
+
         Route::get('{form_id}/fields/create/{type}/{sort?}', FormField\Create::class)
             ->name('form_field.create');
 

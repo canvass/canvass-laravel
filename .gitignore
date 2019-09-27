@@ -3,3 +3,4 @@
 .env
 /tests/app/storage
 .DS_Store
+.phpunit.result.cache

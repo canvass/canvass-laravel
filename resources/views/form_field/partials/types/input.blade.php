@@ -2,7 +2,9 @@
 
 @include('canvass::form_field.partials.fields.name')
 
-@include('canvass::form_field.partials.fields.type')
+@if($show_type_field ?? false)
+    @include('canvass::form_field.partials.fields.type')
+@endif
 
 @include('canvass::form_field.partials.fields.id')
 
