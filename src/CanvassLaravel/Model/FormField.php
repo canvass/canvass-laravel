@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class FormField extends Model implements FormFieldModel
 {
-    protected $fillable = [
-
+    protected $casts = [
+        'attributes' => 'array',
     ];
 
     public const INPUT_TYPES = [
