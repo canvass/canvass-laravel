@@ -13,3 +13,5 @@
 @include('canvass::form_field.partials.fields.help-text')
 
 @include('canvass::form_field.partials.fields.value')
+
+<hr>

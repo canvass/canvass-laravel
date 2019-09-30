@@ -38,7 +38,7 @@ class CanvassValidatorTest extends TestCase
         );
 
         $this->assertEquals(
-            [],
+            ['field' => 'nullable'],
             $validator->convertRulesToFormat(['field' => ['required' => false]])
         );
 
@@ -51,6 +51,17 @@ class CanvassValidatorTest extends TestCase
             ['field' => 'max:160'],
             $validator->convertRulesToFormat(['field' => ['max_length' => 160]])
         );
+
+        $this->assertEquals(
+            ['field' => 'date_format:"Y-m-d"'],
+            $validator->convertRulesToFormat(['field' => ['date_format' => 'Y-m-d']])
+        );
+
+        $this->assertEquals(
+            ['field' => 'date_format:"H:i:s"'],
+            $validator->convertRulesToFormat(['field' => ['date_format' => 'H:i:s']])
+        );
+
 
         $this->assertEquals(
             ['field' => 'key:value'],

@@ -30,11 +30,17 @@ class CanvassValidator implements Validate, ValidationMap
                 elseif ('data_type' === $key) {
                     $string[] = $value;
                 }
+                elseif ('date_format' === $key) {
+                    $string[] = "date_format:\"{$value}\"";
+                }
                 elseif ('one_of' === $key) {
                     $string[] = 'in:' . implode(',', $value);
                 }
                 elseif (true === $value) {
                     $string[] = $key;
+                }
+                elseif (false === $value && 'required' === $key) {
+                    $string[] = 'nullable';
                 }
                 elseif (false === $value) {
                     // ignore
@@ -49,7 +55,7 @@ class CanvassValidator implements Validate, ValidationMap
             }
 
             if (! empty($string)) {
-                $return[$name] = implode('|', $string);
+                $return[$name] = implode('|', array_unique($string));
             }
         }
 

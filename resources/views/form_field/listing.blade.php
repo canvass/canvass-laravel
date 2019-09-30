@@ -33,7 +33,7 @@
 
                         <small><code>
                             id="{{ $field->identifier }}"
-                            class="{{ $field->classes ?? '<em>None</em>' }}"
+                            class="{{ $field->classes ?? '' }}"
                         </code></small>
                     </h2>
                     <p><code>
