@@ -52,7 +52,7 @@ class CanvassServiceProvider extends ServiceProvider
                     database_path('migrations/' .
                         date('Y_m_d_His') . '_create_canvass_forms_table.php'
                     ),
-                "{$migrate_path}//create_canvass_form_fields_table.php.stub" =>
+                "{$migrate_path}/create_canvass_form_fields_table.php.stub" =>
                     database_path('migrations/' .
                         date('Y_m_d_His') . '_create_canvass_forms_table.php'
                     ),
