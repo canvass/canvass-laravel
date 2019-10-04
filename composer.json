@@ -1,7 +1,7 @@
 {
-    "name": "canvass/laravel-service-provider",
+    "name": "canvass/canvass-laravel",
     "license": "MIT",
-    "description": "Laravel Service Provider for Canvass form builder",
+    "description": "Laravel Service Provider for the Canvass form builder",
     "authors": [
         {
             "name": "Michael Kelly",
