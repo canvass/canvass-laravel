@@ -31,12 +31,6 @@ class CanvassServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if ((bool) env('MIGRATIONS_USE_UPGRADES', true)) {
-            $this->loadMigrationsFrom(
-                canvass_laravel_path('database/migrations/')
-            );
-        }
-
         if ('production' !== env('APP_ENV')) {
             $this->registerEloquentFactoriesFrom(
                 canvass_laravel_path('database/factories/')
@@ -49,6 +43,21 @@ class CanvassServiceProvider extends ServiceProvider
             canvass_laravel_path('resources/views/'),
             'canvass'
         );
+
+        if (! class_exists('CreateCanvassFormsTable')) {
+            $migrate_path = __DIR__ . '/../database/migrations';
+
+            $this->publishes([
+                "{$migrate_path}/create_canvass_forms_table.php.stub" =>
+                    database_path('migrations/' .
+                        date('Y_m_d_His') . '_create_canvass_forms_table.php'
+                    ),
+                "{$migrate_path}//create_canvass_form_fields_table.php.stub" =>
+                    database_path('migrations/' .
+                        date('Y_m_d_His') . '_create_canvass_forms_table.php'
+                    ),
+            ], 'migrations');
+        }
 
         \Canvass\Forge::setFormClosure(static function () {
             return new Form();

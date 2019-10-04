@@ -14,6 +14,8 @@ class Form extends Model implements FormModel
         'classes', 'button_text', 'button_classes'
     ];
 
+    protected $table = 'canvass_forms';
+
     use PreparesFormData;
 
     public function find($id, $owner_id = null)

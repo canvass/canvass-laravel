@@ -13,6 +13,8 @@ class FormField extends Model implements FormFieldModel
         'attributes' => 'array',
     ];
 
+    protected $table = 'canvass_form_fields';
+
     use PreparesFormFieldData;
 
     public function findAllByFormId($form_id, $parent_id = null)
@@ -55,6 +57,13 @@ class FormField extends Model implements FormFieldModel
         $attributes = $this->getAttributeValue('attributes') ?? [];
 
         return $attributes[$key] ?? null;
+    }
+
+    public function hasAttribute($key): bool
+    {
+        $attributes = $this->getAttributeValue('attributes') ?? [];
+
+        return isset($attributes[$key]);
     }
 
     public function setDataToAttributes($key, $value)
