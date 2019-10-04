@@ -4,9 +4,9 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFormFieldsTable extends Migration
+class CreateCanvassFormFieldsTable extends Migration
 {
-    private $table_name = 'form_fields';
+    private $table_name = 'canvass_form_fields';
 
     public function up()
     {
@@ -22,11 +22,12 @@ class CreateFormFieldsTable extends Migration
 
             $table->string('identifier', 160)->nullable();
             $table->string('classes', 160)->nullable();
+            $table->string('wrap_classes', 160)->nullable();
 
             $table->string('name', 160);
             $table->string('label', 160)->nullable();
             $table->string('type', 160)->nullable();
-            $table->string('canvass_type', 160)->nullable();
+            $table->string('general_type', 160)->nullable();
             $table->string('value', 160)->nullable();
 
             $table->string('help_text', 320)->nullable();

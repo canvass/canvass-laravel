@@ -9,15 +9,18 @@ $factory->define(\CanvassLaravel\Model\FormField::class, function (Faker $faker)
         'form_id' => 1,
         'parent_id' => 0,
 
-        'identifier' => 'form-control',
+        'identifier' => 'form1',
         'classes' => 'form-control',
+        'wrap_classes' => 'form-group',
 
         'name' => 'name',
         'label' => 'Name',
         'type' => 'text',
-        'canvass_type' => 'input',
+        'general_type' => 'input',
         'value' => '',
 
         'help_text' => 'Your full name',
+
+        'attributes' => []
     ];
 });

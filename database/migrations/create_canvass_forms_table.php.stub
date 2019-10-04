@@ -4,9 +4,9 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFormsTable extends Migration
+class CreateCanvassFormsTable extends Migration
 {
-    private $table_name = 'forms';
+    private $table_name = 'canvass_forms';
 
     public function up()
     {
