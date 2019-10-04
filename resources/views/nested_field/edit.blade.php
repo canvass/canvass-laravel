@@ -27,7 +27,7 @@
             </ol>
 
             <form method="POST" action="{{ route(
-                'form_field_option.update',
+                'nested_field.update',
                 [$form->id, $parent->id, $field->id]
             ) }}"
                   enctype="multipart/form-data"

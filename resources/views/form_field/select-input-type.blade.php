@@ -26,11 +26,21 @@
 
             <ul class="list-unstyled">
             @foreach($types as $type => $name)
+                <?php
+                    if (empty($field)) {
+                        $route = route(
+                            'form_field.create',
+                            [$form->id, $type, $sort]
+                        );
+                    } else {
+                        $route = route(
+                            'nested_field.create',
+                            [$form->id, $field->id, $type, $sort]
+                        );
+                    }
+                ?>
                 <li>
-                    <a href="{{ route(
-                        'form_field.create',
-                        [$form->id, $type, $sort]
-                    ) }}" class="btn btn-outline-primary">
+                    <a href="{{ $route }}" class="btn btn-outline-primary">
                         {{ $name }}
                     </a>
                 </li>

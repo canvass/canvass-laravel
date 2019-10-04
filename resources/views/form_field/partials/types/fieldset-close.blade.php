@@ -24,7 +24,7 @@
                 <a class="btn btn-sm btn-outline-primary js-confirm"
                    data-confirm="{{ $confirm_message }}"
                    href="{{ route(
-                     'form_field_option.edit',
+                     'nested_field.edit',
                      [$form->id, $field->id, $child->id]
                    ) }}"
                 >
@@ -34,7 +34,7 @@
                 @if(0 !== $index)
                 <form method="post" style="display:inline;"
                   action="{{ route(
-                    'form_field_option.move_up',
+                    'nested_field.move_up',
                     [$form->id, $field->id, $child->id]
                   ) }}"
                   class="js-confirm"
@@ -51,7 +51,7 @@
                 @if($last !== $index)
                 <form method="post" style="display:inline;"
                   action="{{ route(
-                    'form_field_option.move_down',
+                    'nested_field.move_down',
                     [$form->id, $field->id, $child->id]
                   ) }}"
                   class="js-confirm"
@@ -67,7 +67,7 @@
 
                 <form method="post" style="display:inline;"
                   action="{{ route(
-                    'form_field_option.destroy',
+                    'nested_field.destroy',
                     [$form->id, $field->id, $child->id]
                   ) }}"
                   class="js-confirm"

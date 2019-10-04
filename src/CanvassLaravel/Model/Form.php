@@ -16,9 +16,15 @@ class Form extends Model implements FormModel
 
     use PreparesFormData;
 
-    public function find($id)
+    public function find($id, $owner_id = null)
     {
-        return self::query()->where('id', $id)->first();
+        $query = self::query()->where('id', $id);
+
+        if (null !== $owner_id) {
+            $query = $query->where('owner_id', $owner_id);
+        }
+
+        return $query->first();
     }
 
     public function findAllForListing($owner_id = null)
@@ -30,6 +36,13 @@ class Form extends Model implements FormModel
         }
 
         return $query->orderBy('name')->get();
+    }
+
+    public function findField($field_id)
+    {
+        return FormField::where('form_id', $this->getId())
+            ->where('id', $field_id)
+            ->first();
     }
 
     public function findFields($parent_id = null)
@@ -72,5 +85,15 @@ class Form extends Model implements FormModel
     protected function getActionUrl($form_id): string
     {
         return env('CANVASS_FORM_PATH', '/form/submit') . '/' . $form_id;
+    }
+
+    public function getData($key)
+    {
+        return $this->getAttribute($key);
+    }
+
+    public function setData($key, $value)
+    {
+        return $this->setAttribute($key, $value);
     }
 }

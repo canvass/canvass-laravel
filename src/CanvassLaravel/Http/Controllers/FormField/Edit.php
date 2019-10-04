@@ -24,7 +24,7 @@ class Edit
             'form' => $form,
             'field' => $field,
             'children' => $children,
-            'type' => $field->getHtmlType(),
+            'type' => $field->getAttribute('type'),
             'sort' => $field->sort,
             'show_type_field' => false,
         ]);

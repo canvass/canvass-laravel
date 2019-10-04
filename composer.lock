@@ -4,8 +4,125 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "22694463e0960e3911b555bacf127add",
-    "packages": [],
+    "content-hash": "76c81c579559395eb489be4f75a4ee22",
+    "packages": [
+        {
+            "name": "canvass/canvass-core",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/canvass/canvass-core.git",
+                "reference": "de857c9b8f669b07cebdd338aa3019f20adca856"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/canvass/canvass-core/zipball/de857c9b8f669b07cebdd338aa3019f20adca856",
+                "reference": "de857c9b8f669b07cebdd338aa3019f20adca856",
+                "shasum": ""
+            },
+            "require": {
+                "promo-code/web-anvil": "0.1-alpha"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.3",
+                "roave/security-advisories": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "Canvass\\": "src/Canvass/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Kelly",
+                    "email": "puritandesigns@gmail.com"
+                }
+            ],
+            "description": "A form building library",
+            "time": "2019-10-03T20:36:45+00:00"
+        },
+        {
+            "name": "promo-code/laravel-schema-helper",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/promo-code/laravel-schema-helper.git",
+                "reference": "3ffea863ff905f1088547e137d9ebfb4ae7b48bb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/promo-code/laravel-schema-helper/zipball/3ffea863ff905f1088547e137d9ebfb4ae7b48bb",
+                "reference": "3ffea863ff905f1088547e137d9ebfb4ae7b48bb",
+                "shasum": ""
+            },
+            "require-dev": {
+                "laravel/framework": "^5.8",
+                "roave/security-advisories": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PromoCode\\LaravelSchemaHelper\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Kelly",
+                    "email": "mkelly@newmediaretailer.com"
+                }
+            ],
+            "description": "Laravel-based helper for migrations",
+            "time": "2019-09-19T15:07:36+00:00"
+        },
+        {
+            "name": "promo-code/web-anvil",
+            "version": "v0.1-alpha",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/promo-code/web-anvil.git",
+                "reference": "a42ec828b7e2fd7458f4f4efebf1662b28abffa4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/promo-code/web-anvil/zipball/a42ec828b7e2fd7458f4f4efebf1662b28abffa4",
+                "reference": "a42ec828b7e2fd7458f4f4efebf1662b28abffa4",
+                "shasum": ""
+            },
+            "require-dev": {
+                "roave/security-advisories": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "WebAnvil\\": "src/WebAnvil/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Kelly",
+                    "email": "mkelly@newmediaretailer.com"
+                }
+            ],
+            "description": "A simple PHP factory/forge static class",
+            "time": "2019-10-02T15:04:21+00:00"
+        }
+    ],
     "packages-dev": [
         {
             "name": "doctrine/instantiator",
@@ -365,22 +482,22 @@
         },
         {
             "name": "phpspec/prophecy",
-            "version": "1.8.1",
+            "version": "1.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "1927e75f4ed19131ec9bcc3b002e07fb1173ee76"
+                "reference": "f6811d96d97bdf400077a0cc100ae56aa32b9203"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/1927e75f4ed19131ec9bcc3b002e07fb1173ee76",
-                "reference": "1927e75f4ed19131ec9bcc3b002e07fb1173ee76",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/f6811d96d97bdf400077a0cc100ae56aa32b9203",
+                "reference": "f6811d96d97bdf400077a0cc100ae56aa32b9203",
                 "shasum": ""
             },
             "require": {
                 "doctrine/instantiator": "^1.0.2",
                 "php": "^5.3|^7.0",
-                "phpdocumentor/reflection-docblock": "^2.0|^3.0.2|^4.0",
+                "phpdocumentor/reflection-docblock": "^2.0|^3.0.2|^4.0|^5.0",
                 "sebastian/comparator": "^1.1|^2.0|^3.0",
                 "sebastian/recursion-context": "^1.0|^2.0|^3.0"
             },
@@ -424,7 +541,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2019-06-13T12:50:23+00:00"
+            "time": "2019-10-03T11:07:50+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -680,16 +797,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "8.3.5",
+            "version": "8.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "302faed7059fde575cf3403a78c730c5e3a62750"
+                "reference": "57e5e77b62086033528ee1f4063ae03035f57894"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/302faed7059fde575cf3403a78c730c5e3a62750",
-                "reference": "302faed7059fde575cf3403a78c730c5e3a62750",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/57e5e77b62086033528ee1f4063ae03035f57894",
+                "reference": "57e5e77b62086033528ee1f4063ae03035f57894",
                 "shasum": ""
             },
             "require": {
@@ -733,7 +850,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "8.3-dev"
+                    "dev-master": "8.4-dev"
                 }
             },
             "autoload": {
@@ -759,44 +876,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2019-09-14T09:12:03+00:00"
-        },
-        {
-            "name": "promo-code/laravel-schema-helper",
-            "version": "v1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/promo-code/laravel-schema-helper.git",
-                "reference": "3ffea863ff905f1088547e137d9ebfb4ae7b48bb"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/promo-code/laravel-schema-helper/zipball/3ffea863ff905f1088547e137d9ebfb4ae7b48bb",
-                "reference": "3ffea863ff905f1088547e137d9ebfb4ae7b48bb",
-                "shasum": ""
-            },
-            "require-dev": {
-                "laravel/framework": "^5.8",
-                "roave/security-advisories": "dev-master"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "PromoCode\\LaravelSchemaHelper\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Michael Kelly",
-                    "email": "mkelly@newmediaretailer.com"
-                }
-            ],
-            "description": "Laravel-based helper for migrations",
-            "time": "2019-09-19T15:07:36+00:00"
+            "time": "2019-10-04T03:12:25+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",

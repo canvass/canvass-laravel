@@ -10,7 +10,7 @@
         <a class="btn btn-sm btn-outline-success js-confirm"
            data-confirm="{{ $confirm_message }}"
            href="{{ route(
-             'form_field_option.create',
+             'nested_field.create',
              [$form->id, $field->id, count($children ?? []), $child_type]
            ) }}"
         >
@@ -27,7 +27,7 @@
                 <a class="btn btn-sm btn-outline-primary js-confirm"
                    data-confirm="{{ $confirm_message }}"
                    href="{{ route(
-                     'form_field_option.edit',
+                     'nested_field.edit',
                      [$form->id, $field->id, $child->id]
                    ) }}"
                 >
@@ -36,7 +36,7 @@
 
                 <form method="post" style="display:inline;"
                   action="{{ route(
-                    'form_field_option.destroy',
+                    'nested_field.destroy',
                     [$form->id, $field->id, $child->id]
                   ) }}"
                   class="js-confirm"

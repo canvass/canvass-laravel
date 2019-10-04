@@ -1,8 +1,8 @@
 <?php
 
-use \CanvassLaravel\Http\Controllers\Form;
-use \CanvassLaravel\Http\Controllers\FormField;
-use \CanvassLaravel\Http\Controllers\FieldOption;
+use \Canvass\Action\Form;
+use \Canvass\Action\FormField;
+use \Canvass\Action\NestedField;
 
 Route::group(['middleware' => ['web', 'auth']], function () {
     Route::group(['prefix' => 'form'], function () {
@@ -12,11 +12,11 @@ Route::group(['middleware' => ['web', 'auth']], function () {
 
         Route::post('/', Form\Store::class)->name('form.store');
 
-        Route::get('{id}/edit', Form\Edit::class)->name('form.edit');
+        Route::get('{form_id}/edit', Form\Edit::class)->name('form.edit');
 
-        Route::put('{id}', Form\Update::class)->name('form.update');
+        Route::put('{form_id}', Form\Update::class)->name('form.update');
 
-        Route::delete('{id}', Form\Destroy::class)->name('form.destroy');
+        Route::delete('{form_id}', Form\Destroy::class)->name('form.destroy');
 
 
         // Form Control Routes
@@ -52,39 +52,44 @@ Route::group(['middleware' => ['web', 'auth']], function () {
 
         // Field Option Routes
         Route::get(
+            '{form_id}/fields/{field_id}/options/create/{sort}/input',
+            NestedField\SelectInputType::class
+        )->name('nested_field.select_input_type');
+
+        Route::get(
             '{form_id}/fields/{field_id}/options/create/{sort}/{type}',
-            FieldOption\Create::class
-        )->name('form_field_option.create');
+            NestedField\Create::class
+        )->name('nested_field.create');
 
         Route::post(
             '{form_id}/fields/{field_id}/options/{sort}/{type}',
-            FieldOption\Store::class
-        )->name('form_field_option.store');
+            NestedField\Store::class
+        )->name('nested_field.store');
 
         Route::get(
             '{form_id}/fields/{field_id}/options/edit/{option_id}',
-            FieldOption\Edit::class
-        )->name('form_field_option.edit');
+            NestedField\Edit::class
+        )->name('nested_field.edit');
 
         Route::put(
             '{form_id}/fields/{field_id}/options/edit/{option_id}',
-            FieldOption\Update::class
-        )->name('form_field_option.update');
+            NestedField\Update::class
+        )->name('nested_field.update');
 
         Route::delete(
             '{form_id}/fields/{field_id}/options/{option_id}',
-            FieldOption\Destroy::class
-        )->name('form_field_option.destroy');
+            NestedField\Destroy::class
+        )->name('nested_field.destroy');
 
         Route::post(
             '{form_id}/fields/{field_id}/options/{option_id}/move/up',
-            FieldOption\MoveUp::class
-        )->name('form_field_option.move_up');
+            NestedField\MoveUp::class
+        )->name('nested_field.move_up');
 
         Route::post(
             '{form_id}/fields/{field_id}/options/{option_id}/move/down',
-            FieldOption\MoveDown::class
-        )->name('form_field_option.move_down');
+            NestedField\MoveDown::class
+        )->name('nested_field.move_down');
     });
 });
 

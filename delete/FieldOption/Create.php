@@ -25,7 +25,7 @@ class Create
 
         }
 
-        return view('canvass::field_option.create', [
+        return view('canvass::nested_field.create', [
             'form' => $form,
             'parent' => $field,
             'field' => new FormField(),

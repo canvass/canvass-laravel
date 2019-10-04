@@ -30,7 +30,7 @@
             </ol>
 
             <form method="POST" action="{{ route(
-                'form_field_option.store',
+                'nested_field.store',
                 [$form->id, $parent->id, $sort, $type]
             ) }}"
                   enctype="multipart/form-data"

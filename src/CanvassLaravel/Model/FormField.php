@@ -3,6 +3,7 @@
 namespace CanvassLaravel\Model;
 
 use Canvass\Contract\FormFieldModel;
+use Canvass\Support\FieldTypes;
 use Canvass\Support\PreparesFormFieldData;
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,11 +11,6 @@ class FormField extends Model implements FormFieldModel
 {
     protected $casts = [
         'attributes' => 'array',
-    ];
-
-    public const INPUT_TYPES = [
-        'checkbox', 'date', 'email', 'number', 'radio', 'search',
-        'tel', 'text', 'time', 'url',
     ];
 
     use PreparesFormFieldData;
@@ -33,9 +29,37 @@ class FormField extends Model implements FormFieldModel
         return $fields->get();
     }
 
-    public function find($id)
+    public function find($id, $owner_id = null)
     {
-        return self::query()->where('id', $id)->first();
+        $query = self::query()->where('id', $id);
+
+        if (null !== $owner_id) {
+            $query = $query->where('owner_id', $owner_id);
+        }
+
+        return $query->first();
+    }
+
+    public function getData($key)
+    {
+        return $this->getAttribute($key);
+    }
+
+    public function setData($key, $value)
+    {
+        return $this->setAttribute($key, $value);
+    }
+
+    public function getDataFromAttributes($key)
+    {
+        $attributes = $this->getAttributeValue('attributes') ?? [];
+
+        return $attributes[$key] ?? null;
+    }
+
+    public function setDataToAttributes($key, $value)
+    {
+        $this->attributes['attributes'][$key] = $value;
     }
 
     public function getId()
@@ -47,7 +71,7 @@ class FormField extends Model implements FormFieldModel
     {
         $type = $this->attributes['type'];
 
-        if (in_array($type, self::INPUT_TYPES, true)) {
+        if (in_array($type, FieldTypes::INPUT_TYPES, true)) {
             return 'input';
         }
 

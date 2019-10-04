@@ -20,7 +20,7 @@ class Edit
 
         }
 
-        return view('canvass::field_option.edit', [
+        return view('canvass::nested_field.edit', [
             'form' => $form,
             'parent' => $parent,
             'field' => $field,
