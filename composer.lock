@@ -4,24 +4,24 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "76c81c579559395eb489be4f75a4ee22",
+    "content-hash": "38e0a492ccbe289db1d3b03df7314277",
     "packages": [
         {
             "name": "canvass/canvass-core",
-            "version": "v0.1.0",
+            "version": "v0.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/canvass/canvass-core.git",
-                "reference": "de857c9b8f669b07cebdd338aa3019f20adca856"
+                "reference": "1fce0c24f2507b73bb2191678c16e19a5265da52"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/canvass/canvass-core/zipball/de857c9b8f669b07cebdd338aa3019f20adca856",
-                "reference": "de857c9b8f669b07cebdd338aa3019f20adca856",
+                "url": "https://api.github.com/repos/canvass/canvass-core/zipball/1fce0c24f2507b73bb2191678c16e19a5265da52",
+                "reference": "1fce0c24f2507b73bb2191678c16e19a5265da52",
                 "shasum": ""
             },
             "require": {
-                "promo-code/web-anvil": "0.1-alpha"
+                "promo-code/web-anvil": "^0.2.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "^8.3",
@@ -47,7 +47,7 @@
                 }
             ],
             "description": "A form building library",
-            "time": "2019-10-03T20:36:45+00:00"
+            "time": "2019-10-04T13:51:07+00:00"
         },
         {
             "name": "promo-code/laravel-schema-helper",
@@ -88,20 +88,17 @@
         },
         {
             "name": "promo-code/web-anvil",
-            "version": "v0.1-alpha",
+            "version": "v0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/promo-code/web-anvil.git",
-                "reference": "a42ec828b7e2fd7458f4f4efebf1662b28abffa4"
+                "reference": "89e74167faaad6b85aac8d219c44cd6d4f4697a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/promo-code/web-anvil/zipball/a42ec828b7e2fd7458f4f4efebf1662b28abffa4",
-                "reference": "a42ec828b7e2fd7458f4f4efebf1662b28abffa4",
+                "url": "https://api.github.com/repos/promo-code/web-anvil/zipball/89e74167faaad6b85aac8d219c44cd6d4f4697a3",
+                "reference": "89e74167faaad6b85aac8d219c44cd6d4f4697a3",
                 "shasum": ""
-            },
-            "require-dev": {
-                "roave/security-advisories": "dev-master"
             },
             "type": "library",
             "autoload": {
@@ -120,7 +117,7 @@
                 }
             ],
             "description": "A simple PHP factory/forge static class",
-            "time": "2019-10-02T15:04:21+00:00"
+            "time": "2019-10-04T13:40:31+00:00"
         }
     ],
     "packages-dev": [

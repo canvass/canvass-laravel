@@ -1,6 +1,6 @@
 <?php
 
-namespace CanvassLaravel\Providers;
+namespace CanvassLaravel;
 
 use Canvass\Contract\Action;
 use CanvassLaravel\Model\Form;
@@ -54,7 +54,7 @@ class CanvassServiceProvider extends ServiceProvider
                     ),
                 "{$migrate_path}/create_canvass_form_fields_table.php.stub" =>
                     database_path('migrations/' .
-                        date('Y_m_d_His') . '_create_canvass_forms_table.php'
+                        date('Y_m_d_His', time() + 1) . '_create_canvass_form_fields_table.php'
                     ),
             ], 'migrations');
         }

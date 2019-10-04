@@ -22,7 +22,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "CanvassLaravel\\Providers\\CanvassServiceProvider"
+                "CanvassLaravel\\CanvassServiceProvider"
             ]
         }
     },
