@@ -1,4 +1,4 @@
-@extends('canvass::layouts.layout')
+@extends('layouts.layout')
 
 @section('content-page-title')
     Select Input Type
@@ -25,6 +25,11 @@
             </ol>
 
             <ul class="list-unstyled">
+                <li style="display: inline-block">
+                    <strong>
+                        What type of input?
+                    </strong>
+                </li>
             @foreach($types as $type => $name)
                 <?php
                     if (empty($field)) {
@@ -39,7 +44,7 @@
                         );
                     }
                 ?>
-                <li>
+                <li style="display: inline-block">
                     <a href="{{ $route }}" class="btn btn-outline-primary">
                         {{ $name }}
                     </a>

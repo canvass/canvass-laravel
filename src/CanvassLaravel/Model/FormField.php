@@ -15,6 +15,11 @@ class FormField extends Model implements FormFieldModel
 
     protected $table = 'canvass_form_fields';
 
+    protected $fillable = [
+        'identifier', 'classes', 'wrap_classes', 'name', 'label',
+        'value', 'help_text', 'attributes'
+    ];
+
     use PreparesFormFieldData;
 
     public function findAllByFormId($form_id, $parent_id = null)

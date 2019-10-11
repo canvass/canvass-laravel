@@ -4,6 +4,7 @@ namespace CanvassLaravel\Support;
 
 use Canvass\Contract\Validate;
 use Canvass\Contract\ValidationMap;
+use CanvassLaravel\Validation\InGroup;
 
 class CanvassValidator implements Validate, ValidationMap
 {
@@ -21,41 +22,59 @@ class CanvassValidator implements Validate, ValidationMap
         $return = [];
 
         foreach ($rules as $name => $rule) {
-            $string = [];
-            
-            foreach ($rule as $key => $value) {
+            $laravel_rules = [];
+
+            if (empty($rule['rules'])) {
+                continue;
+            }
+
+            $rules_group = $rule['rules'];
+
+            foreach ($rules_group as $key => $value) {
                 if ('allow_null' === $key && true === $value) {
-                    $string[] = 'nullable';
+                    $laravel_rules[] = 'nullable';
                 }
                 elseif ('data_type' === $key) {
-                    $string[] = $value;
+                    $laravel_rules[] = $value;
                 }
                 elseif ('date_format' === $key) {
-                    $string[] = "date_format:\"{$value}\"";
+                    $laravel_rules[] = "date_format:\"{$value}\"";
+                }
+                elseif ('min_date' === $key) {
+                    $laravel_rules[] = "after:\"{$value}\"";
+                }
+                elseif ('max_date' === $key) {
+                    $laravel_rules[] = "before:\"{$value}\"";
+                }
+                elseif ('min_time' === $key || 'max_time' === $key) {
+                    // ignore
                 }
                 elseif ('one_of' === $key) {
-                    $string[] = 'in:' . implode(',', $value);
+                    $laravel_rules[] = 'in:' . implode(',', $value);
+                }
+                elseif ('in_group' === $key) {
+                    $laravel_rules[] = new InGroup($value);
                 }
                 elseif (true === $value) {
-                    $string[] = $key;
+                    $laravel_rules[] = $key;
                 }
                 elseif (false === $value && 'required' === $key) {
-                    $string[] = 'nullable';
+                    $laravel_rules[] = 'nullable';
                 }
                 elseif (false === $value) {
                     // ignore
                 }
                 elseif (strpos($key, '_length') !== false) {
                     $key = str_replace('_length', '', $key);
-                    $string[] = "{$key}:{$value}";
+                    $laravel_rules[] = "{$key}:{$value}";
                 }
                 else {
-                    $string[] = "{$key}:{$value}";
+                    $laravel_rules[] = "{$key}:{$value}";
                 }
             }
 
-            if (! empty($string)) {
-                $return[$name] = implode('|', array_unique($string));
+            if (! empty($laravel_rules)) {
+                $return[$name] = $laravel_rules;
             }
         }
 

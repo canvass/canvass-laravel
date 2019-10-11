@@ -1,4 +1,4 @@
-@extends('canvass::layouts.layout')
+@extends('layouts.layout')
 
 @section('content-page-title')
     Edit {{ $form->name }} Fields
@@ -25,7 +25,6 @@
 
             <div class="form-wrap">
             <ul class="list-unstyled">
-            <?php $last = count($fields) - 1; ?>
             @foreach($fields as $index => $field)
                 <li class="field-wrap">
                     <h2>
@@ -56,7 +55,7 @@
                         Edit field
                     </a>
 
-                    @if(0 !== $index)
+                    @if(! $loop->first)
                     <form method="post" style="display:inline;"
                       action="{{ route(
                         'form_field.move_up',
@@ -73,7 +72,7 @@
                     </form>
                     @endif
 
-                    @if($last !== $index)
+                    @if(! $loop->last)
                     <form method="post" style="display:inline;"
                       action="{{ route(
                         'form_field.move_down',

@@ -1,7 +1,7 @@
-@extends('canvass::layouts.layout')
+@extends('layouts.layout')
 
 @section('content-page-title')
-    Update Field, "{{ $field->label }}" in {{ $form->name }}
+    Update {{ $field->type }}, "{{ $field->label }}" in {{ $form->name }}
 @endsection
 
 @section('content')
@@ -40,7 +40,7 @@
 
                 </form>
 
-                @includeIf("canvass::form_field.partials.types.{$type}-close")
+                @includeIf("canvass::form_field.partials.types.{$field->type}-close")
             </div>
         </div>
     </div>

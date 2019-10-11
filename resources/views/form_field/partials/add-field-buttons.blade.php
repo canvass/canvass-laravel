@@ -1,3 +1,4 @@
+<hr>
 <strong>
     Add a Field<?php if(! empty($field->label)): ?> to {{ $field->label }}<?php endif; ?>:
 </strong>

@@ -1,4 +1,4 @@
-@extends('canvass::layouts.layout')
+@extends('layouts.layout')
 
 @section('content-page-title')
     Add a Field to {{ $form->name }}

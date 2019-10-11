@@ -11,7 +11,7 @@
            data-confirm="{{ $confirm_message }}"
            href="{{ route(
              'nested_field.create',
-             [$form->id, $field->id, count($children ?? []), $child_type]
+             [$form->id, $field->id, count($children ?? []), 'option']
            ) }}"
         >
             Add Option
@@ -55,7 +55,7 @@
             @endforeach
         @else
             <li>
-                No options yet. <a href="">Add one</a> now.
+                No nested fields yet.
             </li>
         @endif
     </ul>
