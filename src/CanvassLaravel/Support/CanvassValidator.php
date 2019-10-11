@@ -31,46 +31,7 @@ class CanvassValidator implements Validate, ValidationMap
             $rules_group = $rule['rules'];
 
             foreach ($rules_group as $key => $value) {
-                if ('allow_null' === $key && true === $value) {
-                    $laravel_rules[] = 'nullable';
-                }
-                elseif ('data_type' === $key) {
-                    $laravel_rules[] = $value;
-                }
-                elseif ('date_format' === $key) {
-                    $laravel_rules[] = "date_format:\"{$value}\"";
-                }
-                elseif ('min_date' === $key) {
-                    $laravel_rules[] = "after:\"{$value}\"";
-                }
-                elseif ('max_date' === $key) {
-                    $laravel_rules[] = "before:\"{$value}\"";
-                }
-                elseif ('min_time' === $key || 'max_time' === $key) {
-                    // ignore
-                }
-                elseif ('one_of' === $key) {
-                    $laravel_rules[] = 'in:' . implode(',', $value);
-                }
-                elseif ('in_group' === $key) {
-                    $laravel_rules[] = new InGroup($value);
-                }
-                elseif (true === $value) {
-                    $laravel_rules[] = $key;
-                }
-                elseif (false === $value && 'required' === $key) {
-                    $laravel_rules[] = 'nullable';
-                }
-                elseif (false === $value) {
-                    // ignore
-                }
-                elseif (strpos($key, '_length') !== false) {
-                    $key = str_replace('_length', '', $key);
-                    $laravel_rules[] = "{$key}:{$value}";
-                }
-                else {
-                    $laravel_rules[] = "{$key}:{$value}";
-                }
+                $this->convertRule($key, $value, $laravel_rules);
             }
 
             if (! empty($laravel_rules)) {
@@ -79,5 +40,71 @@ class CanvassValidator implements Validate, ValidationMap
         }
 
         return $return;
+    }
+
+    private function convertRule(string $key, $value, array &$laravel_rules)
+    {
+        if (
+            ('allow_null' === $key && true === $value) ||
+            ('required' === $key && false === $value)
+        ) {
+            return $this->setRule('nullable', $laravel_rules);
+        }
+
+        if ('data_type' === $key) {
+            return $this->setRule($value, $laravel_rules);
+        }
+
+        if ('date_format' === $key) {
+            return $this->setRule(
+                "date_format:\"{$value}\"",
+                $laravel_rules
+            );
+        }
+
+        if ('min_date' === $key) {
+            return $this->setRule("after:\"{$value}\"", $laravel_rules);
+        }
+
+        if ('max_date' === $key) {
+            return $this->setRule("before:\"{$value}\"", $laravel_rules);
+        }
+
+        if ('one_of' === $key) {
+            return $this->setRule(
+                'in:' . implode(',', $value),
+                $laravel_rules
+            );
+        }
+
+        if ('in_group' === $key) {
+            return $this->setRule(new InGroup($value), $laravel_rules);
+        }
+
+        if (true === $value) {
+            return $this->setRule($key, $laravel_rules);
+        }
+
+        if (
+            false === $value ||
+            ('min_time' === $key || 'max_time' === $key)
+        ) {
+            return; // ignore
+        }
+
+        if (strpos($key, '_length') !== false) {
+            $key = str_replace('_length', '', $key);
+
+            return $this->setRule("{$key}:{$value}", $laravel_rules);
+        }
+
+        return $this->setRule("{$key}:{$value}", $laravel_rules);
+    }
+
+    private function setRule($value, array &$laravel_rules)
+    {
+        if (! in_array($value, $laravel_rules, true)) {
+            $laravel_rules[] = $value;
+        }
     }
 }

@@ -33,7 +33,8 @@
         "canvass/canvass-core": "^0.1"
     },
     "require-dev": {
-        "phpunit/phpunit": "^8.3"
+        "phpunit/phpunit": "^8.3",
+        "laravel/framework": "^5.8"
     },
     "autoload-dev": {
         "psr-4": {
