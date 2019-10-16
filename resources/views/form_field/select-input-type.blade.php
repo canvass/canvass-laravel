@@ -40,7 +40,7 @@
                     } else {
                         $route = route(
                             'nested_field.create',
-                            [$form->id, $field->id, $type, $sort]
+                            [$form->id, $field->id, $sort, $type]
                         );
                     }
                 ?>

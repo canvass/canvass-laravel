@@ -90,3 +90,17 @@
     <span class="sr-only">Add</span>
     Divider
 </a>
+
+@if($show_columns_button ?? true)
+<a class="btn btn-outline-primary"
+   href="{{ \CanvassLaravel\Support\View::getFieldCreateRoute(
+       $form->id,
+       'columns',
+       $sort ?? 0,
+       $field->id ?? null
+   ) }}"
+>
+    <span class="sr-only">Add</span>
+    Columns
+</a>
+@endif

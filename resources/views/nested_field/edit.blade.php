@@ -1,7 +1,8 @@
 @extends('layouts.layout')
 
 @section('content-page-title')
-    Update Field, "{{ $parent->label }}" in {{ $form->name }}
+    Update Field, "{{ $field->label ?: $field->identifier }}"
+    in {{ $form->name }}
 @endsection
 
 @section('content')
@@ -9,7 +10,7 @@
     <div class="col-12">
         <div class="card-box">
             <h1 class="m-t-0 header-title">
-                Update Field, "{{ $parent->label }}"
+                Update Field, "{{ $field->label ?: $field->identifier }}"
             </h1>
 
             <ol class="breadcrumb">
@@ -39,6 +40,8 @@
                 @include('canvass::form_field.partials.form')
 
             </form>
+
+            @includeIf("canvass::form_field.partials.types.{$field->type}-close")
         </div>
     </div>
 </div>

@@ -1,6 +1,6 @@
 <hr>
 
-<h2>{{ $field->label ?? $field->identifier }} Fields</h2>
+<h2>{{ $field->label ?: $field->identifier }} Fields</h2>
 
 <hr>
 
@@ -15,7 +15,7 @@
 ?>
 <div class="form-group">
     <ul>
-        @if(! empty($children->toArray()))
+        @if(! empty($children) && ! empty($children->toArray()))
             <?php $last = count($children->toArray()); ?>
             @foreach($children as $index => $child)
             <li>
