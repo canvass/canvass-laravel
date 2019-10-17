@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends(config('canvass.layout_file_path', 'canvass::layouts.layout'))
 
 @section('content-page-title')
     Update {{ $field->type }}, "{{ $field->label ?: $field->identifier }}"
