@@ -3,8 +3,10 @@
         Classes (Optional)
     </label>
     <input id="classes" name="classes" type="text" class="form-control"
-        value="{{ old('classes', $field->classes ?? '') }}"
-        placeholder="form-control"
+        placeholder="form-control" value="{{ old(
+            'classes',
+            $field->classes ?? config('canvass.defaults.field.classes', '')
+        ) }}"
     >
     <p class="text-hint">
         What will be used as the classes on the field:

@@ -10,4 +10,6 @@
 
 @include('canvass::form_field.partials.fields.classes')
 
+@include('canvass::form_field.partials.fields.wrap-classes')
+
 @include('canvass::form_field.partials.fields.help-text')

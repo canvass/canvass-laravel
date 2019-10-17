@@ -85,9 +85,13 @@
                 Button Text (Optional)
             </label>
             <input id="button_text" name="button_text"
-               type="text" class="form-control"
-                value="{{ old('button_text', $form->button_text ?? 'Submit') }}"
-                placeholder="Submit"
+               type="text" class="form-control" placeholder="Submit"
+               value="{{ old(
+                   'button_text',
+                   $form->button_text ?? config(
+                       'canvass.defaults.button_text',
+                       'Submit'
+                   )) }}"
             >
             <p class="text-muted">
                 What will be used as the text of the submit button
@@ -101,9 +105,13 @@
                 Button Classes (Optional)
             </label>
             <input id="button_classes" name="button_classes"
-               type="text" class="form-control"
-               value="{{ old('button_classes', $form->button_classes ?? 'btn btn-primary') }}"
-               placeholder="btn btn-primary"
+               type="text" class="form-control" placeholder="btn btn-primary"
+               value="{{ old(
+                   'button_classes',
+                   $form->button_classes ?? config(
+                       'canvass.defaults.button_classes',
+                       'btn btn-primary'
+                   )) }}"
             >
             <p class="text-muted">
                 What classes to add to the submit button
