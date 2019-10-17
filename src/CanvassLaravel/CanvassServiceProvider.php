@@ -41,7 +41,7 @@ class CanvassServiceProvider extends ServiceProvider
         );
 
         if (! class_exists('CreateCanvassFormsTable')) {
-            $migrate_path = __DIR__ . '/../../../database/migrations';
+            $migrate_path = __DIR__ . '/../../database/migrations';
 
             $this->publishes([
                 "{$migrate_path}/create_canvass_forms_table.php.stub" =>
