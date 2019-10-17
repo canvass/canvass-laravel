@@ -14,7 +14,10 @@ class CanvassServiceProvider extends ServiceProvider
      */
     public function register()
     {
-
+        $this->mergeConfigFrom(
+            __DIR__ . '/../../config/config.php',
+            'canvass'
+        );
     }
 
     /**
@@ -31,7 +34,7 @@ class CanvassServiceProvider extends ServiceProvider
             );
         }
 
-        if ((bool) env('CANVASS_USE_DEFAULT_ROUTES', true)) {
+        if ((bool) config('canvass.use_default_routes', true)) {
             $this->loadRoutesFrom(canvass_laravel_path('routes/web.php'));
         }
 
