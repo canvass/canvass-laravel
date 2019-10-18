@@ -20,18 +20,7 @@ Route::group(['middleware' => ['web', 'auth']], function () {
 
         Route::get(
             '{form_id}/preview',
-            static function ($form_id) {
-                $render = new \CanvassPaint\Blade\RenderFunction();
-
-                $form = new \CanvassPaint\Action\RenderForm($render);
-
-                $html = $form->render($form_id, \Canvass\Forge::getOwnerId());
-
-                return view('canvass::preview.form', [
-                    'form_html' => $html,
-                    'form' => $form->getForm(),
-                ]);
-            }
+            \CanvassLaravel\Action\Form\Preview::class
         )->name('form.preview');
 
 

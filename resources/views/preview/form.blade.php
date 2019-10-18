@@ -1,7 +1,7 @@
 @extends(config('canvass.layout_file_path', 'canvass::layouts.layout'))
 
 @section('content-page-title')
-    Forms
+    Form Preview, "{{ $form->name }}"
 @endsection
 
 @section('content')
