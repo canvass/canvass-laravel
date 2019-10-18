@@ -9,11 +9,17 @@ return [
     'defaults' => [
         'form' => [
             'button_text' => 'Submit',
-            'button_classes' => 'button',
+            'button_classes' => '',
         ],
         'field' => [
-            'wrap_classes' => 'field-wrap',
-            'classes' => 'field',
+            'wrap_classes' => '',
+            'classes' => '',
+        ],
+        'columns' => [
+            'wrap_classes' => ''
+        ],
+        'column' => [
+            'classes' => ''
         ]
     ]
 ];
