@@ -18,6 +18,22 @@ Route::group(['middleware' => ['web', 'auth']], function () {
 
         Route::delete('{form_id}', Form\Destroy::class)->name('form.destroy');
 
+        Route::get(
+            '{form_id}/preview',
+            static function ($form_id) {
+                $render = new \CanvassPaint\Blade\RenderFunction();
+
+                $form = new \CanvassPaint\Action\RenderForm($render);
+
+                $html = $form->render($form_id, \Canvass\Forge::getOwnerId());
+
+                return view('canvass::preview.form', [
+                    'form_html' => $html,
+                    'form' => $form->getForm(),
+                ]);
+            }
+        )->name('form.preview');
+
 
         // Form Control Routes
         Route::get('{form_id}/fields', FormField\Index::class)

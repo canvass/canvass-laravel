@@ -1,7 +1,7 @@
 @extends(config('canvass.layout_file_path', 'canvass::layouts.layout'))
 
 @section('content-page-title')
-    Forms
+    Form Preview, "{{ $form->name }}"
 @endsection
 
 @section('content')
@@ -35,19 +35,23 @@
                 @foreach($forms as $form)
                     <tr>
                         <td>
-                            <a href="{{ route('form.edit', $form->id) }}">
-                                {{ $form->name }}
-                            </a>
+                            {{ $form->name }}
                         </td>
                         <td>
                             {{ $form->redirect_url }}
                         </td>
                         <td>
                             {{ \Illuminate\Support\Str::limit(
-                                $form->introduction, 60
+                                $form->introduction, 30
                             ) }}
                         </td>
                         <td class="text-right">
+                            <a class="btn btn-sm btn-outline-warning"
+                               href="{{ route('form.preview', $form->id) }}">
+                                Preview
+                                <span class="sr-only">Form</span>
+                            </a>
+
                             <a class="btn btn-sm btn-outline-success"
                                href="{{ route('form_field.index', $form->id) }}">
                                 Form controls
@@ -55,7 +59,8 @@
 
                             <a class="btn btn-sm btn-outline-primary"
                                href="{{ route('form.edit', $form->id) }}">
-                                Edit form
+                                Edit
+                                <span class="sr-only">Form</span>
                             </a>
 
                             <form method="post" style="display:inline;"
@@ -69,7 +74,8 @@
                                 <button class="btn btn-sm btn-outline-danger"
                                   type="submit"
                                 >
-                                    Delete form
+                                    Delete
+                                    <span class="sr-only">Form</span>
                                 </button>
                             </form>
                         </td>

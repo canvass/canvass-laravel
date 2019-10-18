@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b8d92651f5d7dc7710a005ec1a0b9f7d",
+    "content-hash": "2469f4f1e2f058dd19b489498cebadef",
     "packages": [
         {
             "name": "canvass/canvass-core",
@@ -48,6 +48,98 @@
             ],
             "description": "A form building library",
             "time": "2019-10-11T18:19:31+00:00"
+        },
+        {
+            "name": "canvass/canvass-paint",
+            "version": "v0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/canvass/canvass-paint.git",
+                "reference": "0af553716c0904499381c1e4d4afe9a0d1042e50"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/canvass/canvass-paint/zipball/0af553716c0904499381c1e4d4afe9a0d1042e50",
+                "reference": "0af553716c0904499381c1e4d4afe9a0d1042e50",
+                "shasum": ""
+            },
+            "require": {
+                "canvass/canvass-core": "^0.1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.3",
+                "roave/security-advisories": "dev-master"
+            },
+            "suggest": {
+                "ext-pdo": "For use with PdoModels"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "CanvassPaint\\": "src/CanvassPaint/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Kelly",
+                    "email": "puritandesigns@gmail.com"
+                }
+            ],
+            "description": "A form rendering library",
+            "time": "2019-10-04T18:17:54+00:00"
+        },
+        {
+            "name": "canvass/canvass-paint-blade",
+            "version": "v0.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/canvass/canvass-paint-blade.git",
+                "reference": "1e39660455e1decd39e3c4ff9cee56459345b437"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/canvass/canvass-paint-blade/zipball/1e39660455e1decd39e3c4ff9cee56459345b437",
+                "reference": "1e39660455e1decd39e3c4ff9cee56459345b437",
+                "shasum": ""
+            },
+            "require": {
+                "canvass/canvass-paint": "^0.2"
+            },
+            "require-dev": {
+                "illuminate/support": "^6.2",
+                "laravel/framework": "^6.2",
+                "phpunit/phpunit": "^8.3",
+                "roave/security-advisories": "dev-master"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "CanvassPaint\\Blade\\CanvassPaintServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "CanvassPaint\\Blade\\": "src/CanvassPaint/Blade/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Kelly",
+                    "email": "puritandesigns@gmail.com"
+                }
+            ],
+            "description": "A form rendering library using Laravel's Blade",
+            "time": "2019-10-18T12:41:13+00:00"
         },
         {
             "name": "promo-code/laravel-schema-helper",
@@ -614,16 +706,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.0.55",
+            "version": "1.0.57",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "33c91155537c6dc899eacdc54a13ac6303f156e6"
+                "reference": "0e9db7f0b96b9f12dcf6f65bc34b72b1a30ea55a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/33c91155537c6dc899eacdc54a13ac6303f156e6",
-                "reference": "33c91155537c6dc899eacdc54a13ac6303f156e6",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/0e9db7f0b96b9f12dcf6f65bc34b72b1a30ea55a",
+                "reference": "0e9db7f0b96b9f12dcf6f65bc34b72b1a30ea55a",
                 "shasum": ""
             },
             "require": {
@@ -694,7 +786,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2019-08-24T11:17:19+00:00"
+            "time": "2019-10-16T21:01:05+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -824,16 +916,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.25.1",
+            "version": "2.25.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "d59c6cea9c4a3547bb6c0dfec451319abdaa4fb1"
+                "reference": "443fe5f1498147e0fbc792142b5dc43e2e8a533f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/d59c6cea9c4a3547bb6c0dfec451319abdaa4fb1",
-                "reference": "d59c6cea9c4a3547bb6c0dfec451319abdaa4fb1",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/443fe5f1498147e0fbc792142b5dc43e2e8a533f",
+                "reference": "443fe5f1498147e0fbc792142b5dc43e2e8a533f",
                 "shasum": ""
             },
             "require": {
@@ -887,7 +979,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2019-10-05T15:52:23+00:00"
+            "time": "2019-10-14T14:18:59+00:00"
         },
         {
             "name": "opis/closure",

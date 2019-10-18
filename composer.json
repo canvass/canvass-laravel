@@ -30,7 +30,8 @@
     "prefer-stable": true,
     "require": {
         "promo-code/laravel-schema-helper": "^1.0",
-        "canvass/canvass-core": "^0.1"
+        "canvass/canvass-core": "^0.1",
+        "canvass/canvass-paint-blade": "^0.1"
     },
     "require-dev": {
         "phpunit/phpunit": "^8.3",
