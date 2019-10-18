@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2469f4f1e2f058dd19b489498cebadef",
+    "content-hash": "8b50af6289f601f3385b8e94f5f5d954",
     "packages": [
         {
             "name": "canvass/canvass-core",
-            "version": "v0.1.2",
+            "version": "v0.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/canvass/canvass-core.git",
-                "reference": "0eb3e2c70ad2a7c2c4553d787fd76ee79a5f203b"
+                "reference": "e5dbecaec0a05722425cddc3fdb9777544e7ff3f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/canvass/canvass-core/zipball/0eb3e2c70ad2a7c2c4553d787fd76ee79a5f203b",
-                "reference": "0eb3e2c70ad2a7c2c4553d787fd76ee79a5f203b",
+                "url": "https://api.github.com/repos/canvass/canvass-core/zipball/e5dbecaec0a05722425cddc3fdb9777544e7ff3f",
+                "reference": "e5dbecaec0a05722425cddc3fdb9777544e7ff3f",
                 "shasum": ""
             },
             "require": {
@@ -47,24 +47,24 @@
                 }
             ],
             "description": "A form building library",
-            "time": "2019-10-11T18:19:31+00:00"
+            "time": "2019-10-17T20:06:52+00:00"
         },
         {
             "name": "canvass/canvass-paint",
-            "version": "v0.2.0",
+            "version": "v0.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/canvass/canvass-paint.git",
-                "reference": "0af553716c0904499381c1e4d4afe9a0d1042e50"
+                "reference": "92359cf9bcbdc64e35a4605d77d5417025de7c1e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/canvass/canvass-paint/zipball/0af553716c0904499381c1e4d4afe9a0d1042e50",
-                "reference": "0af553716c0904499381c1e4d4afe9a0d1042e50",
+                "url": "https://api.github.com/repos/canvass/canvass-paint/zipball/92359cf9bcbdc64e35a4605d77d5417025de7c1e",
+                "reference": "92359cf9bcbdc64e35a4605d77d5417025de7c1e",
                 "shasum": ""
             },
             "require": {
-                "canvass/canvass-core": "^0.1.0"
+                "canvass/canvass-core": "^0.2"
             },
             "require-dev": {
                 "phpunit/phpunit": "^8.3",
@@ -90,7 +90,7 @@
                 }
             ],
             "description": "A form rendering library",
-            "time": "2019-10-04T18:17:54+00:00"
+            "time": "2019-10-16T16:33:56+00:00"
         },
         {
             "name": "canvass/canvass-paint-blade",
