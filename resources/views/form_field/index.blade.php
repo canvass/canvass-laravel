@@ -28,7 +28,9 @@
             @foreach($fields as $index => $field)
                 <li class="field-wrap">
                     <h2>
-                        {{ $field->label }}
+                        {{ ucwords(
+                            $field->type, '-'
+                        ) }}{{ ! empty($field->label) ? ': ' . $field->label : '' }}
 
                         <small><code>
                             id="{{ $field->identifier }}"
