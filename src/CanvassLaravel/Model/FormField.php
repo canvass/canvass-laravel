@@ -3,12 +3,17 @@
 namespace CanvassLaravel\Model;
 
 use Canvass\Contract\FormFieldModel;
+use Canvass\Contract\FormModel;
 use Canvass\Support\FieldTypes;
 use Canvass\Support\PreparesFormFieldData;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class FormField extends Model implements FormFieldModel
 {
+    /** @var FormModel */
+    private $form_model;
+
     protected $casts = [
         'attributes' => 'array',
     ];
@@ -21,6 +26,22 @@ class FormField extends Model implements FormFieldModel
     ];
 
     use PreparesFormFieldData;
+
+    public function __construct(array $attributes = [], FormModel $form = null)
+    {
+        if (null !== $form) {
+            $this->form_model = $form;
+        } elseif (
+            isset($attributes['form']) &&
+            $attributes['form'] instanceof FormModel
+        ) {
+            $this->form_model = $attributes['form'];
+
+            unset($attributes['form']);
+        }
+
+        parent::__construct($attributes);
+    }
 
     public function findAllByFormId($form_id, $parent_id = null)
     {
@@ -81,6 +102,20 @@ class FormField extends Model implements FormFieldModel
         return $this->attributes['id'];
     }
 
+    public function getFormModel(): FormModel
+    {
+        if (null !== $this->form_model) {
+            return $this->form_model;
+        }
+
+        return $this->form;
+    }
+
+    public function setFormModel(FormModel $form_model): void
+    {
+        $this->form_model = $form_model;
+    }
+
     public function getHtmlType(): string
     {
         $type = $this->attributes['type'];
@@ -102,5 +137,10 @@ class FormField extends Model implements FormFieldModel
             ->where('parent_id', $this->getId())
             ->orderBy('sort')
             ->get();
+    }
+
+    public function form(): BelongsTo
+    {
+        return $this->belongsTo(Form::class);
     }
 }

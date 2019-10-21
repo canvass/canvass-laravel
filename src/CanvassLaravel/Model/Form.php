@@ -6,6 +6,7 @@ use Canvass\Contract\FormFieldModel;
 use Canvass\Contract\FormModel;
 use Canvass\Support\PreparesFormData;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Form extends Model implements FormModel
 {
@@ -97,5 +98,10 @@ class Form extends Model implements FormModel
     public function setData($key, $value)
     {
         return $this->setAttribute($key, $value);
+    }
+
+    public function fields(): HasMany
+    {
+        return $this->belongsTo(FormField::class);
     }
 }
