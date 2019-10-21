@@ -24,7 +24,7 @@ class CreateCanvassFormFieldsTable extends Migration
             $table->string('classes', 160)->nullable();
             $table->string('wrap_classes', 160)->nullable();
 
-            $table->string('name', 160);
+            $table->string('name', 160)->nullable();
             $table->string('label', 160)->nullable();
             $table->string('type', 160)->nullable();
             $table->string('general_type', 160)->nullable();
