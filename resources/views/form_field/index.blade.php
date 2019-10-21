@@ -32,7 +32,12 @@
 
                         <small><code>
                             id="{{ $field->identifier }}"
+                        @if(! empty($field->classes))
                             class="{{ $field->classes ?? '' }}"
+                        @endif
+                        @if(! empty($field->wrap_classes))
+                            wrap_class="{{ $field->wrap_classes }}"
+                        @endif
                         </code></small>
                     </h2>
                     <p><code>

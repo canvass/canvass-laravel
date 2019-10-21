@@ -8,8 +8,8 @@
             <label for="wrap_classes">
                 Wrap Classes (Optional)
             </label>
-            <input id="wrap_classes" name="wrap_classes" type="text" class="form-control"
-                placeholder="form-control" value="{{ old(
+            <input id="wrap_classes" class="form-control" name="wrap_classes"
+                type="text" placeholder="form-control" value="{{ old(
                     'wrap_classes',
                     $field->wrap_classes ?? config(
                         'canvass.defaults.columns.wrap_classes', ''
