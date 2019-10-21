@@ -32,6 +32,8 @@
                             $field->type, '-'
                         ) }}{{ ! empty($field->label) ? ': ' . $field->label : '' }}
 
+                        <br>
+
                         <small><code>
                             id="{{ $field->identifier }}"
                         @if(! empty($field->classes))
@@ -42,11 +44,13 @@
                         @endif
                         </code></small>
                     </h2>
+
                     <p><code>
                     @foreach(['type', 'name', 'value'] as $key)
                         {{ $key }}="{{ $field->getAttribute($key) }}"
                     @endforeach
                     </code></p>
+
                     @if(! empty($field->help_text))
                     <p>
                         <strong>Help Text:</strong>
