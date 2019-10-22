@@ -1,4 +1,4 @@
-# canvass-laravel
+# Canvass Laravel
 A Laravel package wrapped around Canvass Core
 
 ## Installation
