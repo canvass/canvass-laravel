@@ -11,7 +11,7 @@ class Destroy implements Action
     {
         try {
             return \DB::transaction(
-                function () use ($form_id, $parent_id, $nested_id) {
+                static function () use ($form_id, $parent_id, $nested_id) {
                     $destroyer = new \Canvass\Action\NestedField\Destroy();
 
                     return $destroyer->__invoke($form_id, $parent_id, $nested_id);
