@@ -3,10 +3,11 @@
         'Click, Cancel, to return to the form to Save first. ' .
         'Or click, OK, to visit the link.';
 ?>
+<hr>
+<h2>Nested Fields</h2>
+<hr>
 <div class="form-group">
     <p>
-        Options
-
         <a class="btn btn-sm btn-outline-success js-confirm"
            data-confirm="{{ $confirm_message }}"
            href="{{ route(
@@ -14,7 +15,7 @@
              [$form->id, $field->id, count($children ?? []), $child_type]
            ) }}"
         >
-            Add Option
+            Add Nested Field
         </a>
     </p>
 
@@ -55,7 +56,7 @@
             @endforeach
         @else
             <li>
-                No options yet.
+                No nested fields yet.
             </li>
         @endif
     </ul>

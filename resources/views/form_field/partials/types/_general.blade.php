@@ -2,17 +2,19 @@
     <div class="col-md">
         @include('canvass::form_field.partials.fields.label')
 
-        @include('canvass::form_field.partials.fields.name')
+        @if($show_name_field ?? true)
+            @include('canvass::form_field.partials.fields.name')
+        @endif
 
         @include('canvass::form_field.partials.fields.id')
 
-        @include('canvass::form_field.partials.fields.value')
+        @if($show_value_field ?? false)
+            @include('canvass::form_field.partials.fields.value', [
+                'required' => $value_field_required ?? true
+            ])
+        @endif
     </div>
     <div class="col-md">
-        @if($show_type_field ?? false)
-            @include('canvass::form_field.partials.fields.type')
-        @endif
-
         @include('canvass::form_field.partials.fields.help-text')
 
         @include('canvass::form_field.partials.fields.classes')
