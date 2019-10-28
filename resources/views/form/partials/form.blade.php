@@ -2,7 +2,7 @@
     <div class="col-md">
         <div class="form-group">
             <label for="name">
-                Form Name
+                Internal Form Name
                 <span aria-hidden="true">*</span>
                 <span class="sr-only">(required)</span>
             </label>
@@ -10,6 +10,24 @@
                 value="{{ old('name', $form->name ?? '') }}"
                 placeholder="Contact Form"
             >
+            <p class="text-muted">
+                A name to use for your own internal referencing
+            </p>
+        </div>
+
+        <div class="form-group">
+            <label for="name">
+                User-Facing Name
+                <span aria-hidden="true">*</span>
+                <span class="sr-only">(required)</span>
+            </label>
+            <input id="name" name="name" type="text" class="form-control"
+                value="{{ old('name', $form->name ?? '') }}"
+                placeholder="Contact Form"
+            >
+            <p class="text-muted">
+                The name that will be presented to users
+            </p>
         </div>
 
         <div class="form-group">
@@ -33,7 +51,7 @@
                 Form Introduction (Optional)
             </label>
             <textarea id="introduction" name="introduction"
-              class="form-control" rows="4"
+              class="form-control js-html-editor" rows="7"
             >{{ old('introduction', $form->introduction ?? '') }}</textarea>
         </div>
         <p class="text-muted">

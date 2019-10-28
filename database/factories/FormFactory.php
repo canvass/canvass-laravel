@@ -9,7 +9,8 @@ $factory->define(\CanvassLaravel\Model\Form::class, function (Faker $faker) {
         'owner_id' => 1,
         
         'name' => 'Form Name',
-        'introduction' => '<h1>Amazing Form Here</h1><p>Please fill out the form below.</p>',
+        'display_name' => 'Form Display Name',
+        'introduction' => '<p><strong>Amazing Form Here!</strong></p><p>Please fill out the form below.</p>',
 
         'redirect_url' => '/confirmation',
         'identifier' => 'form-id',

@@ -1,9 +1,10 @@
-<hr>
 <strong>
     Add a Field<?php if(! empty($field->label)): ?> to {{ $field->label }}<?php endif; ?>:
 </strong>
 
-<a class="btn btn-outline-primary"
+<br>
+
+<a class="btn btn-outline-primary mb-1"
    href="{{ \CanvassLaravel\Support\View::getFieldCreateRoute(
        $form->id,
        'input',
@@ -15,7 +16,7 @@
     Input
 </a>
 
-<a class="btn btn-outline-primary"
+<a class="btn btn-outline-primary mb-1"
    href="{{ \CanvassLaravel\Support\View::getFieldCreateRoute(
        $form->id,
        'textarea',
@@ -27,7 +28,7 @@
     Textarea
 </a>
 
-<a class="btn btn-outline-primary"
+<a class="btn btn-outline-primary mb-1"
    href="{{ \CanvassLaravel\Support\View::getFieldCreateRoute(
        $form->id,
        'select',
@@ -39,7 +40,7 @@
     Select
 </a>
 
-<a class="btn btn-outline-primary"
+<a class="btn btn-outline-primary mb-1"
    href="{{ \CanvassLaravel\Support\View::getFieldCreateRoute(
        $form->id,
        'checkbox',
@@ -52,7 +53,7 @@
 </a>
 
 @if($show_group_button ?? true)
-<a class="btn btn-outline-primary"
+<a class="btn btn-outline-primary mb-1"
    href="{{ \CanvassLaravel\Support\View::getFieldCreateRoute(
        $form->id,
        'group',
@@ -66,7 +67,7 @@
 @endif
 
 @if($show_fieldset_button ?? true)
-<a class="btn btn-outline-primary"
+<a class="btn btn-outline-primary mb-1"
    href="{{ \CanvassLaravel\Support\View::getFieldCreateRoute(
        $form->id,
        'fieldset',
@@ -79,7 +80,7 @@
 </a>
 @endif
 
-<a class="btn btn-outline-primary"
+<a class="btn btn-outline-primary mb-1"
    href="{{ \CanvassLaravel\Support\View::getFieldCreateRoute(
        $form->id,
        'divider',
@@ -92,7 +93,7 @@
 </a>
 
 @if($show_columns_button ?? true)
-<a class="btn btn-outline-primary"
+<a class="btn btn-outline-primary mb-1"
    href="{{ \CanvassLaravel\Support\View::getFieldCreateRoute(
        $form->id,
        'columns',

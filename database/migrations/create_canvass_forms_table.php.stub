@@ -19,6 +19,7 @@ class CreateCanvassFormsTable extends Migration
             $table->unsignedInteger('owner_id')->nullable();
 
             $table->string('name', 160);
+            $table->string('display_name', 160);
             $table->text('introduction')->nullable();
 
             $table->string('redirect_url', 160)->nullable();
