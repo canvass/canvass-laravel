@@ -1,14 +1,16 @@
 @extends(config('canvass.layout_file_path', 'canvass::layouts.layout'))
 
 @section('content-page-title')
-    Add a Field to {{ $form->name }}
+    Add a {{ ucfirst($type) }} Field to {{ $form->name }}
 @endsection
 
 @section('content')
 <div class="row">
     <div class="col-12">
         <div class="card-box">
-            <h1 class="m-t-0 header-title">Add a Field</h1>
+            <h1 class="m-t-0 header-title">
+                Add a {{ ucfirst($type) }} Field
+            </h1>
 
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
@@ -21,7 +23,9 @@
                         {{ $form->name }} Fields
                     </a>
                 </li>
-                <li class="breadcrumb-item active">Add a Field</li>
+                <li class="breadcrumb-item active">
+                    Add a {{ ucfirst($type) }} Field
+                </li>
             </ol>
 
             <div class="form-wrap">
