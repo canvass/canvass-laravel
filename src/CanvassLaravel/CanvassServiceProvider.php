@@ -58,6 +58,15 @@ class CanvassServiceProvider extends ServiceProvider
             ], 'migrations');
         }
 
+        $this->publishes([
+            __DIR__ . '/../../config/config.php' => config_path('canvass.php'),
+        ], 'config');
+
+        $this->publishes([
+            __DIR__ . '/../../resources/views' =>
+                resource_path('views/vendor/canvass'),
+        ], 'views');
+
         \CanvassLaravel\Forge::setUpForLaravel();
     }
 

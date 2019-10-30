@@ -5,7 +5,7 @@ return [
     'layout_file_path' => null,
     // Set to false to override default routes
     'use_default_routes' => true,
-
+    // What values to auto-populate field values in the various forms
     'defaults' => [
         'form' => [
             'button_text' => 'Submit',
