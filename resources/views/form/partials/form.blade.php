@@ -8,7 +8,7 @@
             </label>
             <input id="name" name="name" type="text" class="form-control"
                 value="{{ old('name', $form->name ?? '') }}"
-                placeholder="Contact Form"
+                placeholder="Contact Form #626"
             >
             <p class="text-muted">
                 A name to use for your own internal referencing
@@ -21,8 +21,9 @@
                 <span aria-hidden="true">*</span>
                 <span class="sr-only">(required)</span>
             </label>
-            <input id="name" name="name" type="text" class="form-control"
-                value="{{ old('name', $form->name ?? '') }}"
+            <input id="display_name" name="display_name"
+                type="text" class="form-control"
+                value="{{ old('display_name', $form->display_name ?? '') }}"
                 placeholder="Contact Form"
             >
             <p class="text-muted">
