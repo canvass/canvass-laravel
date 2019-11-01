@@ -2,7 +2,7 @@
 
 namespace CanvassLaravel\Action\Field;
 
-use Canvass\Contract\Action;
+use Canvass\Contract\Action\Action;
 use Canvass\Forge;
 
 class Destroy implements Action

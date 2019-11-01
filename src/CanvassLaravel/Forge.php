@@ -2,7 +2,7 @@
 
 namespace CanvassLaravel;
 
-use Canvass\Contract\Action;
+use Canvass\Contract\Action\Action;
 use CanvassLaravel\Model\Form;
 use CanvassLaravel\Model\FormField;
 use CanvassLaravel\Support\ActionResponseMap;

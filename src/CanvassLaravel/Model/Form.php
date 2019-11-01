@@ -11,8 +11,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Form extends Model implements FormModel
 {
     protected $fillable = [
-        'name', 'introduction', 'redirect_url', 'identifier',
-        'classes', 'button_text', 'button_classes'
+        'name', 'display_name', 'introduction', 'redirect_url',
+        'identifier', 'classes', 'button_text', 'button_classes'
     ];
 
     protected $table = 'canvass_forms';

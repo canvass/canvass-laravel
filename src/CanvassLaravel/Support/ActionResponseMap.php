@@ -2,8 +2,8 @@
 
 namespace CanvassLaravel\Support;
 
-use Canvass\Contract\FieldAction;
-use Canvass\Contract\NestedFieldAction;
+use Canvass\Contract\Action\FieldAction;
+use Canvass\Contract\Action\NestedFieldAction;
 
 class ActionResponseMap
 {

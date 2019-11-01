@@ -1,6 +1,9 @@
 <hr>
 
-<h2>{{ $field->label ?: $field->identifier }} Fields</h2>
+<h2>
+    {{ ucfirst($field->type) }}
+    {{ $field->label ?: $field->identifier }} Fields
+</h2>
 
 <hr>
 

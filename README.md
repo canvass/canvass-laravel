@@ -26,7 +26,7 @@ php artisan vendor:publish --provider="CanvassLaravel\CanvassServiceProvider" --
 ```
 
 ## Next Steps
-Go to `/form` to see the Canvass interface to create forms and form fields.
+Go to `/admin/form` to see the Canvass interface to create forms and form fields.
 
 ## Documentation
 You can find more information at the [Canvass Core project](https://github.com/canvass/canvass-core).

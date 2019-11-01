@@ -2,7 +2,7 @@
 
 namespace CanvassLaravel\Support;
 
-use Canvass\Contract\Action;
+use Canvass\Contract\Action\Action;
 use Illuminate\Support\Str;
 
 class Response implements \Canvass\Contract\Response

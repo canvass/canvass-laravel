@@ -46,21 +46,19 @@
                             ) }}
                         </td>
                         <td class="text-right">
-                            <a class="btn btn-sm btn-outline-warning"
+                            <a class="btn btn-sm btn-warning"
                                href="{{ route('form.preview', $form->id) }}">
-                                Preview
-                                <span class="sr-only">Form</span>
+                                Preview Form
                             </a>
 
-                            <a class="btn btn-sm btn-outline-success"
+                            <a class="btn btn-sm btn-success"
                                href="{{ route('form_field.index', $form->id) }}">
-                                Form controls
+                                Manage Form Fields
                             </a>
 
                             <a class="btn btn-sm btn-outline-primary"
                                href="{{ route('form.edit', $form->id) }}">
-                                Edit
-                                <span class="sr-only">Form</span>
+                                Edit Form
                             </a>
 
                             <form method="post" style="display:inline;"
@@ -74,8 +72,7 @@
                                 <button class="btn btn-sm btn-outline-danger"
                                   type="submit"
                                 >
-                                    Delete
-                                    <span class="sr-only">Form</span>
+                                    Delete Form
                                 </button>
                             </form>
                         </td>
