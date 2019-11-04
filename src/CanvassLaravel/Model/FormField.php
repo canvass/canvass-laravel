@@ -116,7 +116,7 @@ class FormField extends Model implements FormFieldModel
         $this->form_model = $form_model;
     }
 
-    public function getHtmlType(): string
+    public function getGeneralType(): string
     {
         $type = $this->attributes['type'];
 
