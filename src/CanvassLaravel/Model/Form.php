@@ -61,8 +61,12 @@ class Form extends Model implements FormModel
         return $fields->get();
     }
 
+    /**
+     * @param int $sort
+     * @param int $parent_id
+     * @return \Canvass\Contract\FormFieldModel|null */
     public function findFieldWithSortOf(
-        int $sort,
+        $sort,
         $parent_id = 0
     ): ?FormFieldModel
     {
@@ -72,7 +76,7 @@ class Form extends Model implements FormModel
             ->first();
     }
 
-    public function findFieldsWithSortGreaterThan(int $sort, $parent_id = 0)
+    public function findFieldsWithSortGreaterThan($sort, $parent_id = 0)
     {
         return FormField::where('sort', '>', $sort)
             ->where('form_id', $this->getId())
@@ -100,7 +104,7 @@ class Form extends Model implements FormModel
         return $this->setAttribute($key, $value);
     }
 
-    public function fields(): HasMany
+    public function fields()
     {
         return $this->belongsTo(FormField::class);
     }
