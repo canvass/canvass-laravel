@@ -11,7 +11,11 @@ class Response implements \Canvass\Contract\Response
     {
         $view = self::determineResponse($action);
 
-        return view("canvass::{$view}", $data);
+        if (! view()->exists($view)) {
+            $view = "canvass::{$view}";
+        }
+
+        return view($view, $data);
     }
 
     public static function determineResponse(Action $action): string
@@ -25,7 +29,7 @@ class Response implements \Canvass\Contract\Response
         $section = Str::snake($parts[$next_to_last]);
 
         $view = Str::kebab($parts[$last]);
-        
+
         return "{$section}.{$view}";
     }
 }
