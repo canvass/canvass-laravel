@@ -30,8 +30,8 @@
     "prefer-stable": true,
     "require": {
         "promo-code/laravel-schema-helper": "^1.0",
-        "canvass/canvass-core": "0.*",
-        "canvass/canvass-paint-blade": "0.*"
+        "canvass/canvass-core": "1.00.*",
+        "canvass/canvass-paint-blade": "1.00.*"
     },
     "require-dev": {
         "phpunit/phpunit": "^8.3",
@@ -41,5 +41,11 @@
         "psr-4": {
             "Tests\\": "tests/Tests/"
         }
+    },
+    "config": {
+        "platform-check": false,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "optimize-autoloader": true
     }
 }

@@ -5,6 +5,7 @@ namespace CanvassLaravel\Model;
 use Canvass\Contract\FormFieldModel;
 use Canvass\Contract\FormModel;
 use Canvass\Support\PreparesFormData;
+use Canvass\Support\RetrievesNestedFieldData;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
@@ -17,7 +18,7 @@ class Form extends Model implements FormModel
 
     protected $table = 'canvass_forms';
 
-    use PreparesFormData;
+    use PreparesFormData, RetrievesNestedFieldData;
 
     public function find($id, $owner_id = null)
     {
