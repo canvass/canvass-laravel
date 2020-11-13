@@ -105,3 +105,15 @@
     Columns
 </a>
 @endif
+
+<a class="btn btn-outline-primary mb-1"
+   href="{{ \CanvassLaravel\Support\View::getFieldCreateRoute(
+       $form->id,
+       'email-switch',
+       $sort ?? 0,
+       $field->id ?? null
+   ) }}"
+>
+    <span class="sr-only">Add</span>
+    Email Switch
+</a>

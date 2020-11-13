@@ -13,6 +13,10 @@
                 'required' => $value_field_required ?? true
             ])
         @endif
+
+        @if($show_required ?? false)
+            @include('canvass::form_field.partials.attributes.required')
+        @endif
     </div>
     <div class="col-md">
         @include('canvass::form_field.partials.fields.help-text')
