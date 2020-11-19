@@ -8,13 +8,34 @@ use CanvassLaravel\Validation\InGroup;
 
 class CanvassValidator implements Validate, ValidationMap
 {
+    /** @var \Illuminate\Validation\Validator */
+    private $validator;
+
     public function validate($data, $rules)
     {
-        /** @var \Illuminate\Validation\Validator $valid */
-        $validator = app(\Illuminate\Contracts\Validation\Factory::class)
+        /** @var \Illuminate\Validation\Validator $validator */
+        $this->validator = app(\Illuminate\Contracts\Validation\Factory::class)
             ->make($data, $rules);
 
-        return ! empty($validator->validate());
+        return $this->validator->passes();
+    }
+
+    public function getErrors(): array
+    {
+        return $this->validator->errors();
+    }
+
+    public function getErrorsString(): string
+    {
+        $errors = $this->validator->errors();
+
+        $return = '';
+
+        foreach ($errors->toArray() as $error) {
+            $return .= implode(' ', $error) . ' ';
+        }
+
+        return trim($return);
     }
 
     public function convertRulesToFormat($rules)
