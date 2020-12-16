@@ -29,7 +29,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "canvass/canvass-paint-blade": "^1.01",
+        "canvass/canvass-paint-blade": "^1.02",
         "promo-code/laravel-schema-helper": "^1.0"
     },
     "require-dev": {
