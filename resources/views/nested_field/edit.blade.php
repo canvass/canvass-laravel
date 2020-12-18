@@ -37,7 +37,7 @@
                 {{ csrf_field() }}
                 {{ method_field('put') }}
 
-                @include('canvass::form_field.partials.form')
+                @include('canvass::nested_field.partials.form')
 
             </form>
 
